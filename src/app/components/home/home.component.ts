@@ -6,26 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   total: number = 0;
-  isWebChecked: boolean = false;
-  isChecked: boolean = false;
+  webPrice: number = 0;
+  seoPrice: number = 0;
+  adsPrice: number = 0;
+
+  options = [
+    { txt: 'Una página web (500€)', price: 500, isChecked: false },
+    { txt: 'Una consultoria SEO (300€)', price: 300, isChecked: false },
+    { txt: 'Una campaña de Google Ads (200€)', price: 200, isChecked: false }
+  ]
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  public setTotal() {
+
+    this.webPrice = this.options[0].isChecked ? this.options[0].price : 0;
+
+    this.seoPrice = this.options[1].isChecked ? this.options[1].price : 0;
+
+    this.adsPrice = this.options[2].isChecked ? this.options[2].price : 0;
+
+    this.total = this.webPrice + this.seoPrice + this.adsPrice;
+
   }
 
-  public checkboxWeb(e: any) {
-    this.isWebChecked = e.target.checked;
-    this.total += this.isWebChecked ? 500 : -500;
-  }
-
-  public checkboxSeo(e: any) {
-    this.total += e.target.checked ? 300 : -300;
-  }
-
-  public checkboxGoogle(e: any) {
-    this.total += e.target.checked ? 200 : -200;
-  }
 
 }
