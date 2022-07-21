@@ -15,25 +15,24 @@ export class PanellComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor() { }
 
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-  }
   public addToTotal() {
-
-    if (this.pages > -1 && this.languages > -1) {
-      let extra: number = (this.pages * this.languages) * 30;
-      let totalPlusExtra: number = this.total + extra;
-      this.totalPlusExtras = this.total + extra;
-
-      // console.log('extra: ', extra + '€');
-      // console.log('total: ', this.total + '€');
-      // console.log('total + extra: ', totalPlusExtra + '€');
-
-
+    let extra: number = 0
+    this.pages = this.pages < 0 ? 0 : this.pages;
+    this.languages = this.languages < 0 ? 0 : this.languages;
+    if (this.pages === 0 && this.languages != 0) {
+      extra = this.languages * 30;
+    } else if (this.pages != 0 && this.languages === 0) {
+      extra = this.pages * 30;
+    } else {
+      extra = (this.pages * this.languages) * 30;
     }
+
+    this.totalPlusExtras = this.total + extra;
+
   }
 
 }
