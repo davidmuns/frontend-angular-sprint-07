@@ -1,21 +1,11 @@
 <div *ngIf="isWebChecked">
   <br />
-  Número de páginas: &nbsp;<input
-    type="number"
-    name="pages"
-    value="pages"
-    [(ngModel)]="pages"
-    (click)="addToTotal()"
-  /><br /><br />
-  Número de idiomas: &nbsp;<input
-    type="number"
-    name="languages"
-    value="languages"
-    [(ngModel)]="languages"
-    (click)="addToTotal()"
-  /><br />
+  Número de páginas: &nbsp;<input type="number" name="pages" value="pages" [(ngModel)]="pages"
+    (click)="addToTotal()" /><br /><br />
+  Número de idiomas: &nbsp;<input type="number" name="languages" value="languages" [(ngModel)]="languages"
+    (click)="addToTotal()" /><br />
   <p>pages: {{ pages }}</p>
   <p>languages: {{ languages }}</p>
-  <p>total: {{ total }}</p>
+  <p>total: {{ totalPlusExtras }}</p>
 </div>
 <br />
