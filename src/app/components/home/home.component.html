@@ -6,7 +6,7 @@
       <p>¿Qué quieres hacer?</p>
       <form *ngFor="let option of options; let i = index">
         <input type="checkbox" class="mx-1" name="option.isChecked" [(ngModel)]="option.isChecked"
-          (change)="updateTotal()" /><label>{{ option.label }}</label><br />
+          (change)="updateTotal()" /><label>{{ option.label }}</label>
         <span *ngIf="i === 0">
           <app-panell [optionsHomeComponent]="options" [totalHomeComponent]="total"></app-panell>
         </span>
