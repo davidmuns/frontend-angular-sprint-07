@@ -33,4 +33,8 @@ export class PanellComponent implements OnInit {
 
   }
 
+  public printTotal() {
+    alert('Total + extras: ' + this.totalPlusExtras)
+  }
+
 }
