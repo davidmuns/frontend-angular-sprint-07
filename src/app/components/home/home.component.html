@@ -10,6 +10,7 @@
         value="webCheck"
         (click)="checkboxWeb($event)"
       /><label for="">Una página web (500€)</label><br />
+      <app-panell [parentData]="isWebChecked"></app-panell>
       <input
         type="checkbox"
         class="mx-1"
@@ -26,4 +27,5 @@
     </div>
   </div>
 </div>
-<!-- <router-outlet></router-outlet> -->
+
+<router-outlet></router-outlet>

@@ -1,0 +1,18 @@
+<div *ngIf="isWebChecked">
+  <br />
+  Número de páginas: &nbsp;<input
+    type="number"
+    name="pages"
+    value="pages"
+    [(ngModel)]="pages"
+  /><br /><br />
+  Número de idiomas: &nbsp;<input
+    type="number"
+    name="languages"
+    value="languages"
+    [(ngModel)]="languages"
+  /><br />
+  <p>pages: {{ pages }}</p>
+  <p>languages: {{ languages }}</p>
+</div>
+<br />

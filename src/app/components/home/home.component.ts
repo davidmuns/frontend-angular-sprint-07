@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   total: number = 0;
+  isWebChecked: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   public checkboxWeb(e: any) {
-    this.total += e.target.checked ? 500 : -500;
+    this.isWebChecked = e.target.checked;
+    this.total += this.isWebChecked ? 500 : -500;
   }
 
   public checkboxSeo(e: any) {
