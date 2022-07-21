@@ -10,7 +10,10 @@
         value="webCheck"
         (click)="checkboxWeb($event)"
       /><label for="">Una página web (500€)</label><br />
-      <app-panell [parentData]="isWebChecked"></app-panell>
+      <app-panell
+        [parentData]="isWebChecked"
+        [parentData2]="total"
+      ></app-panell>
       <input
         type="checkbox"
         class="mx-1"
@@ -23,6 +26,15 @@
         value="googleCheck"
         (click)="checkboxGoogle($event)"
       /><label for="">Una campaña de Google Ads (200€)</label><br />
+
+      <input
+        type="checkbox"
+        class="mx-1"
+        value="googleCheck"
+        [(ngModel)]="isChecked"
+      /><label for="">Otra campaña (200€)</label><br />
+      <p>{{ isChecked }}</p>
+
       <p>Precio: {{ total }}€</p>
     </div>
   </div>

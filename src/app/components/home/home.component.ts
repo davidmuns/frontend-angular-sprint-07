@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
 
   total: number = 0;
   isWebChecked: boolean = false;
+  isChecked: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

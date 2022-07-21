@@ -5,14 +5,17 @@
     name="pages"
     value="pages"
     [(ngModel)]="pages"
+    (click)="addToTotal()"
   /><br /><br />
   Número de idiomas: &nbsp;<input
     type="number"
     name="languages"
     value="languages"
     [(ngModel)]="languages"
+    (click)="addToTotal()"
   /><br />
   <p>pages: {{ pages }}</p>
   <p>languages: {{ languages }}</p>
+  <p>total: {{ total }}</p>
 </div>
 <br />
