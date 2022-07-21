@@ -3,36 +3,17 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <p>¿Qué quieres hacer</p>
-      <input
-        type="checkbox"
-        class="mx-1"
-        value="webCheck"
-        (click)="checkboxWeb($event)"
-      /><label for="">Una página web (500€)</label><br />
-      <app-panell
-        [parentData]="isWebChecked"
-        [parentData2]="total"
-      ></app-panell>
-      <input
-        type="checkbox"
-        class="mx-1"
-        value="seoCheck"
-        (click)="checkboxSeo($event)"
-      /><label for="">Una consultoria SEO (300€)</label><br />
-      <input
-        type="checkbox"
-        class="mx-1"
-        value="googleCheck"
-        (click)="checkboxGoogle($event)"
-      /><label for="">Una campaña de Google Ads (200€)</label><br />
+      <p>¿Qué quieres hacer?</p>
+      <input type="checkbox" class="mx-1" value="webCheck" (click)="checkboxWeb($event)" /><label for="">Una página web
+        (500€)</label><br />
+      <app-panell [parentData]="isWebChecked" [parentData2]="total"></app-panell>
+      <input type="checkbox" class="mx-1" value="seoCheck" (click)="checkboxSeo($event)" /><label for="">Una consultoria
+        SEO (300€)</label><br />
+      <input type="checkbox" class="mx-1" value="googleCheck" (click)="checkboxGoogle($event)" /><label for="">Una
+        campaña de Google Ads (200€)</label><br />
 
-      <input
-        type="checkbox"
-        class="mx-1"
-        value="googleCheck"
-        [(ngModel)]="isChecked"
-      /><label for="">Otra campaña (200€)</label><br />
+      <input type="checkbox" class="mx-1" value="googleCheck" [(ngModel)]="isChecked" /><label for="">Otra campaña
+        (200€)</label><br />
       <p>{{ isChecked }}</p>
 
       <p>Precio: {{ total }}€</p>
