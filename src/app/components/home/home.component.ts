@@ -12,15 +12,15 @@ export class HomeComponent implements OnInit {
   adsPrice: number = 0;
 
   options = [
-    { txt: 'Una página web (500€)', price: 500, isChecked: false },
-    { txt: 'Una consultoria SEO (300€)', price: 300, isChecked: false },
-    { txt: 'Una campaña de Google Ads (200€)', price: 200, isChecked: false }
+    { label: 'Una página web (500€)', price: 500, isChecked: false },
+    { label: 'Una consultoria SEO (300€)', price: 300, isChecked: false },
+    { label: 'Una campaña de Google Ads (200€)', price: 200, isChecked: false }
   ]
   constructor() { }
 
   ngOnInit(): void { }
 
-  public setTotal() {
+  public updateTotal() {
 
     this.webPrice = this.options[0].isChecked ? this.options[0].price : 0;
 
