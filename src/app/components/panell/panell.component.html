@@ -1,11 +1,9 @@
 <div *ngIf="options[0].isChecked">
-  <br />
-  Número de páginas: &nbsp;<input type="number" name="pages" value="pages" [(ngModel)]="pages"
-    (click)="addExtrasToWeb()" /><br /><br />
-  Número de idiomas: &nbsp;<input type="number" name="languages" value="languages" [(ngModel)]="languages"
-    (click)="addExtrasToWeb()" /><br />
-  <p>pages: {{ pages }}</p>
-  <p>languages: {{ languages }}</p>
-  <p>total: {{ totalPlusExtras }}</p>
+  <div style="border: 3px solid black; background-color: rgb(201, 217, 217); border-radius: 5px; padding: 15px;;">
+    Número de páginas: &nbsp;<input class="my-1" type="number" name="pages" value="pages" [(ngModel)]="pages"
+      (click)="addExtrasToWeb()" /><br>
+    Número de idiomas: &nbsp;<input type="number" name="languages" value="languages" [(ngModel)]="languages"
+      (click)="addExtrasToWeb()" /><br>
+    <button class="btn bg-info" (click)="printTotal()">print total</button>
+  </div>
 </div>
-<br />
