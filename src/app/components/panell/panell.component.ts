@@ -13,8 +13,6 @@ export class PanellComponent implements OnInit {
   languages: number = 0;
   totalPlusExtras: number = 0;
 
-
-
   constructor() { }
 
   ngOnInit(): void { }
