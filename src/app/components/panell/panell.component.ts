@@ -17,7 +17,7 @@ export class PanellComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public addToTotal() {
+  public addExtrasToWeb() {
     let extra: number = 0
     this.pages = this.pages < 0 ? 0 : this.pages;
     this.languages = this.languages < 0 ? 0 : this.languages;
