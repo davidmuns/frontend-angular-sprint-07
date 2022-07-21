@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./panell.component.css']
 })
 export class PanellComponent implements OnInit {
-  @Input('parentData') isWebChecked: boolean = false;
-  @Input('parentData2') total: number = 0;
+  @Input('optionsHomeComponent') options: any;
+  @Input('totalHomeComponent') total: number = 0;
 
   pages: number = 0;
   languages: number = 0;
