@@ -1,8 +1,13 @@
 <div *ngIf="options[0].isChecked">
   <div style="border: 3px solid black; background-color: rgb(201, 217, 217); border-radius: 5px; padding: 15px;;">
-    Número de páginas: &nbsp;<input class="my-1" type="number" name="pages" value="pages" [(ngModel)]="pages"
-      (click)="updateWebExtras()" /><br>
-    Número de idiomas: &nbsp;<input type="number" name="languages" value="languages" [(ngModel)]="languages"
-      (click)="updateWebExtras()" /><br>
+    Número de páginas: &nbsp;
+    <button class="btn bg-info" (click)="addPage()">+</button>
+    <input class="my-1" type="number" name="pages" value="pages" [(ngModel)]="pages" (click)="updateWebExtras()" /><br>
+    <button class="btn bg-info" (click)="deletePage()">-</button>
+
+    Número de idiomas: &nbsp;
+    <button class="btn bg-info" (click)="addLanguage()">+</button>
+    <input type="number" name="languages" value="languages" [(ngModel)]="languages" (click)="updateWebExtras()" /><br>
+    <button class="btn bg-info" (click)="deleteLanguage()">-</button>
   </div>
 </div>
