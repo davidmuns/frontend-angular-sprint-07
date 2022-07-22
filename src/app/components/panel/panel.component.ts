@@ -1,5 +1,6 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-panel',
@@ -9,10 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PanelComponent implements OnInit {
   @Input('optionsHomeComponent') options: any;
 
-  pages: number = 0;
-  languages: number = 0;
+  panelWebForm = new FormGroup({
+    pages: new FormControl('', Validators.required),
+    languages: new FormControl('', Validators.required)
+  })
 
-  constructor(private calculatorService: CalculatorService) { }
+  pages: number = 1;
+  languages: number = 1;
+
+  constructor(private calculatorService: CalculatorService) {
+
+  }
 
   ngOnInit(): void { }
 
@@ -27,7 +35,7 @@ export class PanelComponent implements OnInit {
 
   public deletePage() {
     this.pages--;
-    this.pages = this.pages < 0 ? 0 : this.pages;
+    this.pages = this.pages <= 0 ? 1 : this.pages;
     this.updateWebExtras();
   }
 
@@ -38,7 +46,7 @@ export class PanelComponent implements OnInit {
 
   public deleteLanguage() {
     this.languages--;
-    this.languages = this.languages < 0 ? 0 : this.languages;
+    this.languages = this.languages <= 0 ? 1 : this.languages;
     this.updateWebExtras();
   }
 
