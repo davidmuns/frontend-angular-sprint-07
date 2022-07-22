@@ -8,10 +8,11 @@
         <input type="checkbox" class="mx-1" name="option.isChecked" [(ngModel)]="option.isChecked"
           (change)="updateTotal()" /><label>{{ option.label }}</label>
         <span *ngIf="i === 0">
-          <app-panell [optionsHomeComponent]="options" [totalHomeComponent]="total"></app-panell>
+          <app-panell [optionsHomeComponent]="options"></app-panell>
+
         </span>
       </form>
-      <p>Total: {{ total }}</p>
+      <p>Total: {{ getTotalWithExtras() }}€</p>
     </div>
   </div>
 </div>
