@@ -17,7 +17,7 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateWebExtras() {
-    this.calculatorService.calculateWebExtras(this.pages, this.languages);
+    this.calculatorService.calculateWebExtras(Number(this.pages), Number(this.languages));
   }
 
   public addPage() {
@@ -27,6 +27,7 @@ export class PanelComponent implements OnInit {
 
   public deletePage() {
     this.pages--;
+    this.pages = this.pages < 0 ? 0 : this.pages;
     this.updateWebExtras();
   }
 
@@ -37,6 +38,7 @@ export class PanelComponent implements OnInit {
 
   public deleteLanguage() {
     this.languages--;
+    this.languages = this.languages < 0 ? 0 : this.languages;
     this.updateWebExtras();
   }
 
