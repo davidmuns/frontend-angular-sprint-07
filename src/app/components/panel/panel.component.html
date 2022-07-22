@@ -1,5 +1,8 @@
-<div *ngIf="options[0].isChecked">
-  <div style="border: 3px solid black; background-color: rgb(201, 217, 217); border-radius: 5px; padding: 15px;;">
+<div class="container" *ngIf="options[0].isChecked">
+  <div class="col-4"
+    style="border: 3px solid black; background-color: rgb(201, 217, 217); border-radius: 5px; padding: 15px;;">
+
+
     Número de páginas: &nbsp;
     <button class="btn bg-info mx-1" (click)="addPage()">+</button>
     <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
