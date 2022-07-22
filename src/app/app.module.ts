@@ -1,6 +1,6 @@
 import { PanelComponent } from './components/panel/panel.component';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +20,10 @@ const componentPaths: Routes = [
 
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(componentPaths), FormsModule
+    BrowserModule,
+    RouterModule.forRoot(componentPaths),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
