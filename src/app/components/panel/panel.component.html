@@ -1,40 +1,31 @@
-<!-- <div class="container mt-3 mb-3" *ngIf="options[0].isChecked">
-  <div class="col-4"
-    style="border: 3px solid black; background-color: rgb(201, 217, 217); border-radius: 5px; padding: 15px;;">
+<form [formGroup]="panelWebForm" class="form-container my-3 py-5 d-flex flex-column" *ngIf="options[0].isChecked"
+    style="border: 3px solid black; background-color: rgb(199, 205, 205); border-radius: 15px; padding: 10px;">
 
-    Número de páginas: &nbsp;
-    <button class="btn bg-info mx-1" (click)="addPage()">+</button>
-    <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
-      style="width: 50px; text-align: center;" />
-    <button class="btn bg-info mx-1" (click)="deletePage()">-</button><br><br>
+    <div class="mx-3 d-flex align-items-baseline">
+        <p>Número de páginas:</p> &nbsp;
+        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addPage()">+</button>
+        <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
+            style="width: 50px; text-align: center;" formControlName="pages" />
 
-    Número de idiomas: &nbsp;
-    <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
-    <input type="text" name="languages" value="languages" [(ngModel)]="languages" (keyup)="updateWebExtras()"
-      style="width: 50px; text-align: center;" min="0" />
-    <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button>
-  </div>
-</div> -->
+        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;"
+            (click)="deletePage()">-</button><br><br>
+        <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
+            class="alert alert-danger">
+            Minimum one page required.
+        </div>
+    </div>
 
-<form class="form-container my-3 py-5 d-flex flex-column" *ngIf="options[0].isChecked"
-  style="border: 3px solid black; background-color: rgb(199, 205, 205); border-radius: 15px; padding: 10px;">
-
-  <div class="mx-3 d-flex align-items-baseline">
-    Número de páginas: &nbsp;
-    <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addPage()">+</button>
-    <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
-      style="width: 50px; text-align: center;" />
-    <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="deletePage()">-</button><br><br>
-  </div>
-
-  <div class="mx-3 d-flex align-items-baseline">
-    Número de idiomas: &nbsp;
-    <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addLanguage()">+</button>
-    <input type="text" name="languages" value="languages" [(ngModel)]="languages" (keyup)="updateWebExtras()"
-      style="width: 50px; text-align: center;" min="0" />
-    <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="deleteLanguage()">-</button>
-
-  </div>
-
-
+    <div class="mx-3 d-flex align-items-baseline">
+        <p>Número de idiomas:</p> &nbsp;
+        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addLanguage()">+</button>
+        <input class="my-1" type="text" name="languages" value="languages" [(ngModel)]="languages"
+            (keyup)="updateWebExtras()" style="width: 50px; text-align: center;" formControlName="languages" />
+        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;"
+            (click)="deleteLanguage()">-</button><br><br>
+        <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['required']"
+            class="alert alert-danger">
+            Minimum one language required.
+        </div>
+    </div>
 </form>
+<p> {{ panelWebForm.value | json }} </p>
