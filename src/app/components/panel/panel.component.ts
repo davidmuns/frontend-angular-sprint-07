@@ -20,4 +20,25 @@ export class PanelComponent implements OnInit {
     this.calculatorService.calculateWebExtras(this.pages, this.languages);
   }
 
+  public addPage() {
+    this.pages++;
+    this.updateWebExtras();
+  }
+
+  public deletePage() {
+    this.pages--;
+    this.updateWebExtras();
+  }
+
+  public addLanguage() {
+    this.languages++;
+    this.updateWebExtras();
+  }
+
+  public deleteLanguage() {
+    this.languages--;
+    this.updateWebExtras();
+  }
+
+
 }
