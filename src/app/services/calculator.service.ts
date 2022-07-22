@@ -23,8 +23,8 @@ export class CalculatorService {
   }
 
   public calculateWebExtras(pages: number, languages: number) {
-    pages = pages < 0 ? 0 : pages;
-    languages = languages < 0 ? 0 : languages;
+    pages = pages <= 0 ? 1 : pages;
+    languages = languages <= 0 ? 1 : languages;
 
     if (pages === 0 && languages != 0) {
       this.webExtras = languages * 30;
