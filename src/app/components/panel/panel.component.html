@@ -11,7 +11,7 @@
     Número de idiomas: &nbsp;
     <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
     <input type="text" name="languages" value="languages" [(ngModel)]="languages" (keyup)="updateWebExtras()"
-      style="width: 50px; text-align: center;" />
+      style="width: 50px; text-align: center;" min="0" />
     <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button>
   </div>
 </div>
