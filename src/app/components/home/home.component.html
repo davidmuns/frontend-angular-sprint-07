@@ -1,20 +1,24 @@
 <h1 style="text-align: center">Home</h1>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <p>¿Qué quieres hacer?</p>
-      <form *ngFor="let option of options; let i = index">
-        <input type="checkbox" class="mx-1" name="option.isChecked" [(ngModel)]="option.isChecked"
-          (change)="updateTotal()" /><label>{{ option.label }}</label>
-        <span *ngIf="i === 0">
-          <app-panel [optionsHomeComponent]="options"></app-panel>
 
-        </span>
-      </form>
-      <p>Total: {{ getTotalWithExtras() }}€</p>
-    </div>
-  </div>
+  <p class="fs-5">¿Qué quieres hacer?</p>
+
+  <form *ngFor="let option of options; let i = index">
+
+    <input type="checkbox" class="form-check-input mx-1" name="option.isChecked" [(ngModel)]="option.isChecked"
+      (change)="updateTotal()" /><label class="form-check-label">{{ option.label }}</label>
+    <span *ngIf="i === 0">
+      <app-panel [optionsHomeComponent]="options"></app-panel>
+    </span>
+
+  </form>
+
+  <br>
+
+  <h5>Total: {{ getTotalWithExtras() }}€</h5>
+
 </div>
+
 
 <router-outlet></router-outlet>
