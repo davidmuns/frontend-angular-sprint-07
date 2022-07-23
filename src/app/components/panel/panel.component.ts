@@ -9,14 +9,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PanelComponent implements OnInit {
   @Input('optionsHomeComponent') options: any;
-
-  panelWebForm = new FormGroup({
-    pages: new FormControl('', Validators.required),
-    languages: new FormControl('', Validators.required)
-  })
-
   pages: number = 0;
   languages: number = 0;
+  minRequired: number = 1;
+
+  panelWebForm = new FormGroup({
+    pages: new FormControl('', Validators.compose([Validators.required, Validators.min(this.minRequired)])),
+    languages: new FormControl('', Validators.compose([Validators.required, Validators.min(this.minRequired)]))
+  })
 
   constructor(private calculatorService: CalculatorService) {
 
@@ -35,7 +35,7 @@ export class PanelComponent implements OnInit {
 
   public deletePage() {
     this.pages--;
-    this.pages = this.pages <= 0 ? 1 : this.pages;
+    this.pages = this.pages < 1 ? 0 : this.pages;
     this.updateWebExtras();
   }
 
@@ -46,8 +46,14 @@ export class PanelComponent implements OnInit {
 
   public deleteLanguage() {
     this.languages--;
-    this.languages = this.languages <= 0 ? 1 : this.languages;
+    this.languages = this.languages < 1 ? 0 : this.languages;
     this.updateWebExtras();
+  }
+
+  public isMinNumValid(field: number): boolean {
+    let fieldName: string = field === 1 ? 'pages' : 'languages';
+    let fieldNumber: number = Number(this.panelWebForm.get(fieldName)?.value);
+    return fieldNumber < this.minRequired ? false : true;
   }
 
 
