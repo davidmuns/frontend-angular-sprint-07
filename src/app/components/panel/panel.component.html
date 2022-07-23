@@ -12,10 +12,15 @@
 
         <button class="btn bg-info mx-1" (click)="deletePage()">-</button><br><br>
 
-        <!-- Alert message -->
+        <!-- Required alert message -->
         <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
             class="alert alert-danger">
             This fiels is required.
+        </div>
+
+        <!-- Min value alert message -->
+        <div *ngIf="!isMinNumValid(1)" class="alert alert-danger">
+            Minimum 1 page is required.
         </div>
     </div>
 
@@ -30,11 +35,16 @@
 
         <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button><br><br>
 
-        <!-- Alert message -->
+        <!-- Required alert message -->
         <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['required']"
             class="alert alert-danger">
             This field is required.
         </div>
+
+        <!-- Min value alert message -->
+        <div *ngIf="!isMinNumValid(2)" class="alert alert-danger">
+            Minimum 1 language is required.
+        </div>
     </div>
 </form>
-<p> {{ panelWebForm.value | json }} </p>
+<!-- <p> {{ panelWebForm.value | json }} </p> -->
