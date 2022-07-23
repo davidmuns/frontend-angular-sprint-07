@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
 
+
 const componentPaths: Routes = [
+  { path: '', component: AppComponent },
   { path: 'home', component: HomeComponent }
 ]
 
@@ -16,8 +18,7 @@ const componentPaths: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PanelComponent
-
+    PanelComponent,
   ],
   imports: [
     BrowserModule,
