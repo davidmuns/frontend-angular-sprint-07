@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 
 
@@ -19,12 +21,14 @@ const componentPaths: Routes = [
     AppComponent,
     HomeComponent,
     PanelComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(componentPaths),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
