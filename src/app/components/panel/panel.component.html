@@ -1,30 +1,39 @@
-<form [formGroup]="panelWebForm" class="form-container my-3 py-5 d-flex flex-column" *ngIf="options[0].isChecked"
-    style="border: 3px solid black; background-color: rgb(199, 205, 205); border-radius: 15px; padding: 10px;">
+<!-- Reactive form -->
+<form [formGroup]="panelWebForm" class="form-container my-3 py-5" *ngIf="options[0].isChecked">
 
+    <!-- Input and buttons for pages -->
     <div class="mx-3 d-flex align-items-baseline">
         <p>Número de páginas:</p> &nbsp;
-        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addPage()">+</button>
-        <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
-            style="width: 50px; text-align: center;" formControlName="pages" />
 
-        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;"
-            (click)="deletePage()">-</button><br><br>
+        <button class="btn bg-info mx-1" (click)="addPage()">+</button>
+
+        <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
+            formControlName="pages" />
+
+        <button class="btn bg-info mx-1" (click)="deletePage()">-</button><br><br>
+
+        <!-- Alert message -->
         <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
             class="alert alert-danger">
-            Minimum one page required.
+            This fiels is required.
         </div>
     </div>
 
+    <!-- Input and buttons for languages -->
     <div class="mx-3 d-flex align-items-baseline">
         <p>Número de idiomas:</p> &nbsp;
-        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;" (click)="addLanguage()">+</button>
+
+        <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
+
         <input class="my-1" type="text" name="languages" value="languages" [(ngModel)]="languages"
-            (keyup)="updateWebExtras()" style="width: 50px; text-align: center;" formControlName="languages" />
-        <button class="btn bg-info mx-1" style="color: white; font-weight: bold;"
-            (click)="deleteLanguage()">-</button><br><br>
+            (keyup)="updateWebExtras()" formControlName="languages" />
+
+        <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button><br><br>
+
+        <!-- Alert message -->
         <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['required']"
             class="alert alert-danger">
-            Minimum one language required.
+            This field is required.
         </div>
     </div>
 </form>
