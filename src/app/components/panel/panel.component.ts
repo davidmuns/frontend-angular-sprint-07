@@ -14,8 +14,18 @@ export class PanelComponent implements OnInit {
   minRequired: number = 1;
 
   panelWebForm = new FormGroup({
-    pages: new FormControl('', Validators.compose([Validators.required, Validators.min(this.minRequired)])),
-    languages: new FormControl('', Validators.compose([Validators.required, Validators.min(this.minRequired)]))
+    pages: new FormControl('',
+      Validators.compose([
+        Validators.required,
+        Validators.min(this.minRequired),
+        Validators.pattern("^[0-9]*$")
+      ])),
+    languages: new FormControl('',
+      Validators.compose([
+        Validators.required,
+        Validators.min(this.minRequired),
+        Validators.pattern("^[0-9]*$")
+      ]))
   })
 
   constructor(private calculatorService: CalculatorService) {
@@ -50,6 +60,7 @@ export class PanelComponent implements OnInit {
     this.updateWebExtras();
   }
 
+  // Validator form function
   public isMinNumValid(field: number): boolean {
     let fieldName: string = field === 1 ? 'pages' : 'languages';
     let fieldNumber: number = Number(this.panelWebForm.get(fieldName)?.value);
