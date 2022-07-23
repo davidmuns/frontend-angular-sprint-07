@@ -15,12 +15,18 @@
         <!-- Required alert message -->
         <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
             class="alert alert-danger">
-            This fiels is required.
+            This field is required.
         </div>
 
         <!-- Min value alert message -->
         <div *ngIf="!isMinNumValid(1)" class="alert alert-danger">
             Minimum 1 page is required.
+        </div>
+
+        <!-- Letters alert message -->
+        <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['pattern']"
+            class="alert alert-danger">
+            Only numbers are allowed.
         </div>
     </div>
 
@@ -44,6 +50,12 @@
         <!-- Min value alert message -->
         <div *ngIf="!isMinNumValid(2)" class="alert alert-danger">
             Minimum 1 language is required.
+        </div>
+
+        <!-- Letters alert message -->
+        <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['pattern']"
+            class="alert alert-danger">
+            Only numbers are allowed.
         </div>
     </div>
 </form>
