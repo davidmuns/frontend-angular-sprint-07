@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   options = [
-    { label: 'Una página web (500€)', price: 500, isChecked: false },
+    { label: 'Una página web (from 530€)', price: 500, isChecked: false },
     { label: 'Una consultoria SEO (300€)', price: 300, isChecked: false },
     { label: 'Una campaña de Google Ads (200€)', price: 200, isChecked: false }
   ]
