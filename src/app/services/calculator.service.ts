@@ -9,6 +9,8 @@ export class CalculatorService {
   private adsPrice: number = 0;
   private total: number = 0;
   private webExtras: number = 0;
+  private totalWithExtras: number = 0;
+  private isNumberType: boolean = true;
 
   constructor() { }
 
@@ -22,14 +24,27 @@ export class CalculatorService {
 
   }
 
-  public calculateWebExtras(pages: number, languages: number) {
-    // pages = pages < 1 ? 1 : pages;
-    // languages = languages < 1 ? 1 : languages;
-    this.webExtras = (pages * languages) * 30;
-
+  public calculateWebExtras(pages: number, languages: number): void {
+    if (Number.isNaN(pages) || Number.isNaN(languages)) {
+      this.isNumberType = false;
+    } else {
+      this.isNumberType = true;
+      this.webExtras = (pages * languages) * 30;
+    }
   }
 
-  public getTotalWithExtras(): number {
-    return this.total + this.webExtras;
+  public getTotalWithExtras(): string {
+    this.totalWithExtras = this.isNumberType ? this.total + this.webExtras : 0;
+    return this.formatNumberToCurrency(this.totalWithExtras);
+  }
+
+  public formatNumberToCurrency(number: number) {
+    // Create our number formatter.
+    var formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'EUR',
+    });
+
+    return formatter.format(number);
   }
 }
