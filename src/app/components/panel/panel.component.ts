@@ -15,8 +15,8 @@ export class PanelComponent implements OnInit {
     languages: new FormControl('', Validators.required)
   })
 
-  pages: number = 1;
-  languages: number = 1;
+  pages: number = 0;
+  languages: number = 0;
 
   constructor(private calculatorService: CalculatorService) {
 
