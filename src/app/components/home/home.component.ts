@@ -24,5 +24,4 @@ export class HomeComponent implements OnInit {
   public getTotalWithExtras(): number {
     return this.calculatorService.getTotalWithExtras();
   }
-
 }
