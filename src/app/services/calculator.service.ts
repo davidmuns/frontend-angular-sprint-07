@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Option } from 'src/interfaces/option';
+import { Option } from 'src/app/interfaces/option';
 
 @Injectable({
   providedIn: 'root'
