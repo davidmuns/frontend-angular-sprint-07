@@ -1,6 +1,6 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, OnInit } from '@angular/core';
-import { Option } from 'src/app/interfaces/option';
+import { Option } from '../../interfaces/option';
 
 @Component({
   selector: 'app-home',
