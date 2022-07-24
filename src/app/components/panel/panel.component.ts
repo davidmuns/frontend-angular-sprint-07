@@ -1,6 +1,7 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Option } from 'src/app/interfaces/option';
 
 @Component({
   selector: 'app-panel',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-  @Input('optionsHomeComponent') options: any;
+  @Input('optionsFromHomeComponent') options!: Option[];
   pages: number = 0;
   languages: number = 0;
   minRequired: number = 1;
@@ -31,9 +32,7 @@ export class PanelComponent implements OnInit {
   })
 
   // constructor dependency injection
-  constructor(private calculatorService: CalculatorService) {
-
-  }
+  constructor(private calculatorService: CalculatorService) { }
 
   ngOnInit(): void { }
 
