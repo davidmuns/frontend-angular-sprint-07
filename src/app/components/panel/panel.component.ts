@@ -13,7 +13,7 @@ export class PanelComponent implements OnInit {
   languages: number = 0;
   minRequired: number = 1;
 
-  // Reactive forms
+  // Reactive form instances
   panelForm = new FormGroup({
     pages: new FormControl('',
       [
@@ -30,7 +30,7 @@ export class PanelComponent implements OnInit {
       ]))
   })
 
-  // Dependency injection in constructor
+  // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
 
   }
@@ -54,7 +54,7 @@ export class PanelComponent implements OnInit {
     this.updateExtras();
   }
 
-  // Validator form function
+  // Validator reactive form function
   public isMinQuantityValid(fieldName: string): boolean {
     let quantity: number = Number(this.panelForm.get(fieldName)?.value);
     return quantity < this.minRequired ? false : true;
