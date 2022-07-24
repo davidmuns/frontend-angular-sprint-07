@@ -20,7 +20,7 @@
             Minimum 1 page is required.
         </div>
 
-        <!-- Letters alert message -->
+        <!-- Only integers alert message -->
         <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['pattern']"
             class="alert alert-danger">
             Only positive integers are allowed.
@@ -46,7 +46,7 @@
             Minimum 1 language is required.
         </div>
 
-        <!-- Letters alert message -->
+        <!-- Only inetgers alert message -->
         <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['pattern']"
             class="alert alert-danger">
             Only positive integers are allowed.
