@@ -10,8 +10,7 @@ export class WelcomePageComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   public goHome() {
     this.router.navigate(['home']);
