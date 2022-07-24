@@ -6,10 +6,7 @@
         <p>Número de páginas:</p> &nbsp;
 
         <button class="btn bg-info mx-1" (click)="addPage()">+</button>
-
-        <input class="my-1" type="text" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
-            formControlName="pages" />
-
+        <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateWebExtras()" formControlName="pages" />
         <button class="btn bg-info mx-1" (click)="deletePage()">-</button>
 
         <!-- Required alert message -->
@@ -35,11 +32,9 @@
         <p>Número de idiomas:</p> &nbsp;
 
         <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
-
-        <input class="my-1" type="text" value="languages" [(ngModel)]="languages" (keyup)="updateWebExtras()"
+        <input class="my-1" type="text" [(ngModel)]="languages" (keyup)="updateWebExtras()"
             formControlName="languages" />
-
-        <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button><br><br>
+        <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button>
 
         <!-- Required alert message -->
         <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['required']"
