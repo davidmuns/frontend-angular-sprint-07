@@ -17,15 +17,15 @@
 <div class="container">
 
   <p class="fs-5">¿Qué quieres hacer?</p>
-  <!-- Checkbox form -->
 
+  <!-- Checkbox form -->
   <form *ngFor="let option of options; let i = index">
 
     <div class="form-check">
       <input type="checkbox" class="form-check-input" name="any-name-is-valid" [(ngModel)]="option.isChecked"
         (change)="updateTotal()" /><label class="form-check-label mx-1">{{ option.label }}</label>
       <span *ngIf="i === 0">
-        <app-panel [optionsHomeComponent]="options"></app-panel>
+        <app-panel [optionsFromHomeComponent]="options"></app-panel>
       </span>
     </div>
 
