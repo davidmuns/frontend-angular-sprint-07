@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Option } from 'src/interfaces/option';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculatorService {
-  private webPrice: number = 0;
-  private seoPrice: number = 0;
-  private adsPrice: number = 0;
   private total: number = 0;
   private webExtras: number = 0;
   private totalWithExtras: number = 0;
@@ -14,14 +12,14 @@ export class CalculatorService {
 
   constructor() { }
 
-  public calculateTotal(options: any) {
-
-    this.webPrice = options[0].isChecked ? options[0].price : 0;
-    this.seoPrice = options[1].isChecked ? options[1].price : 0;
-    this.adsPrice = options[2].isChecked ? options[2].price : 0;
-
-    this.total = this.webPrice + this.seoPrice + this.adsPrice;
-
+  public calculateTotal(options: Option[]) {
+    let tempSum = 0;
+    options.forEach(option => {
+      if (option.isChecked) {
+        tempSum += option.price;
+      }
+    })
+    this.total = tempSum;
   }
 
   public calculateExtras(pages: number, languages: number): void {
