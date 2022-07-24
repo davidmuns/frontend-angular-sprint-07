@@ -38,7 +38,7 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateExtras() {
-    this.calculatorService.calculateWebExtras(Number(this.pages), Number(this.languages));
+    this.calculatorService.calculateExtras(Number(this.pages), Number(this.languages));
   }
 
   public setExtra(extra: string, action: string) {
