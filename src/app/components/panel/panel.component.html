@@ -1,27 +1,27 @@
 <!-- Reactive form -->
-<form [formGroup]="panelWebForm" class="form-container my-3 py-5" *ngIf="options[0].isChecked">
+<form [formGroup]="panelForm" class="form-container my-3 py-5" *ngIf="options[0].isChecked">
 
     <!-- Input and buttons for pages -->
     <div class="mx-3 d-flex align-items-baseline">
         <p>Número de páginas:</p> &nbsp;
 
-        <button class="btn bg-info mx-1" (click)="addPage()">+</button>
-        <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateWebExtras()" formControlName="pages" />
-        <button class="btn bg-info mx-1" (click)="deletePage()">-</button>
+        <button class="add btn bg-info mx-1" (click)="setExtra('page', 'add')">+</button>
+        <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateExtras()" formControlName="pages" />
+        <button class="delete btn bg-info mx-1" (click)="setExtra('page', 'delete')">-</button>
 
         <!-- Required alert message -->
-        <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
+        <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['required']"
             class="alert alert-danger">
             This field is required.
         </div>
 
         <!-- Min value alert message -->
-        <div *ngIf="!isMinNumValid(1)" class="alert alert-danger">
+        <div *ngIf="!isMinQuantityValid('pages')" class="alert alert-danger">
             Minimum 1 page is required.
         </div>
 
         <!-- Letters alert message -->
-        <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['pattern']"
+        <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['pattern']"
             class="alert alert-danger">
             Only integer numbers are allowed.
         </div>
@@ -31,24 +31,23 @@
     <div class="mx-3 d-flex align-items-baseline">
         <p>Número de idiomas:</p> &nbsp;
 
-        <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
-        <input class="my-1" type="text" [(ngModel)]="languages" (keyup)="updateWebExtras()"
-            formControlName="languages" />
-        <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button>
+        <button class="add btn bg-info mx-1" (click)="setExtra('language', 'add')">+</button>
+        <input class="my-1" type="text" [(ngModel)]="languages" (keyup)="updateExtras()" formControlName="languages" />
+        <button class="delete btn bg-info mx-1" (click)="setExtra('language', 'delete')">-</button>
 
         <!-- Required alert message -->
-        <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['required']"
+        <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['required']"
             class="alert alert-danger">
             This field is required.
         </div>
 
         <!-- Min value alert message -->
-        <div *ngIf="!isMinNumValid(2)" class="alert alert-danger">
+        <div *ngIf="!isMinQuantityValid('languages')" class="alert alert-danger">
             Minimum 1 language is required.
         </div>
 
         <!-- Letters alert message -->
-        <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['pattern']"
+        <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['pattern']"
             class="alert alert-danger">
             Only integer numbers are allowed.
         </div>
