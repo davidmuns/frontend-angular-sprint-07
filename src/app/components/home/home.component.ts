@@ -1,6 +1,7 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, OnInit } from '@angular/core';
 import { Option } from '../../interfaces/option';
+import optionsJson from 'src/assets/options.json'
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,7 @@ import { Option } from '../../interfaces/option';
 })
 export class HomeComponent implements OnInit {
 
-  options: Option[] = [
-    { label: 'Una página web (desde 530€)', price: 500, isChecked: false },
-    { label: 'Una consultoria SEO (300€)', price: 300, isChecked: false },
-    { label: 'Una campaña de Google Ads (200€)', price: 200, isChecked: false }
-  ]
+  options: Option[] = optionsJson;
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) { }
