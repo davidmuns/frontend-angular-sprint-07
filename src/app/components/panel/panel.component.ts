@@ -15,11 +15,12 @@ export class PanelComponent implements OnInit {
 
   panelWebForm = new FormGroup({
     pages: new FormControl('',
-      Validators.compose([
+      [
         Validators.required,
         Validators.min(this.minRequired),
         Validators.pattern("^[0-9]*$")
-      ])),
+      ]
+    ),
     languages: new FormControl('',
       Validators.compose([
         Validators.required,
