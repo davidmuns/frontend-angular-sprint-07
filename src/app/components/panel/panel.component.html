@@ -23,7 +23,7 @@
         <!-- Letters alert message -->
         <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['pattern']"
             class="alert alert-danger">
-            Only integer numbers are allowed.
+            Only positive integers are allowed.
         </div>
     </div>
 
@@ -49,7 +49,7 @@
         <!-- Letters alert message -->
         <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['pattern']"
             class="alert alert-danger">
-            Only integer numbers are allowed.
+            Only positive integers are allowed.
         </div>
     </div>
 </form>
