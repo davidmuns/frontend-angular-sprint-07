@@ -7,10 +7,10 @@
 
         <button class="btn bg-info mx-1" (click)="addPage()">+</button>
 
-        <input class="my-1" type="text" name="pages" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
+        <input class="my-1" type="text" value="pages" [(ngModel)]="pages" (keyup)="updateWebExtras()"
             formControlName="pages" />
 
-        <button class="btn bg-info mx-1" (click)="deletePage()">-</button><br><br>
+        <button class="btn bg-info mx-1" (click)="deletePage()">-</button>
 
         <!-- Required alert message -->
         <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['required']"
@@ -26,7 +26,7 @@
         <!-- Letters alert message -->
         <div *ngIf="panelWebForm.get('pages')?.touched && panelWebForm.get('pages')?.errors?.['pattern']"
             class="alert alert-danger">
-            Only numbers are allowed.
+            Only integer numbers are allowed.
         </div>
     </div>
 
@@ -36,8 +36,8 @@
 
         <button class="btn bg-info mx-1" (click)="addLanguage()">+</button>
 
-        <input class="my-1" type="text" name="languages" value="languages" [(ngModel)]="languages"
-            (keyup)="updateWebExtras()" formControlName="languages" />
+        <input class="my-1" type="text" value="languages" [(ngModel)]="languages" (keyup)="updateWebExtras()"
+            formControlName="languages" />
 
         <button class="btn bg-info mx-1" (click)="deleteLanguage()">-</button><br><br>
 
@@ -55,7 +55,7 @@
         <!-- Letters alert message -->
         <div *ngIf="panelWebForm.get('languages')?.touched && panelWebForm.get('languages')?.errors?.['pattern']"
             class="alert alert-danger">
-            Only numbers are allowed.
+            Only integer numbers are allowed.
         </div>
     </div>
 </form>
