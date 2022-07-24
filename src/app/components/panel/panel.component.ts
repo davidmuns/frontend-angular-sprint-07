@@ -13,7 +13,8 @@ export class PanelComponent implements OnInit {
   languages: number = 0;
   minRequired: number = 1;
 
-  panelWebForm = new FormGroup({
+  // Reactive forms
+  panelForm = new FormGroup({
     pages: new FormControl('',
       [
         Validators.required,
@@ -29,43 +30,34 @@ export class PanelComponent implements OnInit {
       ]))
   })
 
+  // Dependency injection in constructor
   constructor(private calculatorService: CalculatorService) {
 
   }
 
   ngOnInit(): void { }
 
-  public updateWebExtras() {
+  public updateExtras() {
     this.calculatorService.calculateWebExtras(Number(this.pages), Number(this.languages));
   }
 
-  public addPage() {
-    this.pages++;
-    this.updateWebExtras();
-  }
+  public setExtra(extra: string, action: string) {
+    if (extra === 'page' && action === 'add') this.pages++;
+    if (extra === 'page' && action === 'delete') this.pages--;
 
-  public deletePage() {
-    this.pages--;
+    if (extra === 'language' && action === 'add') this.languages++;
+    if (extra === 'language' && action === 'delete') this.languages--;
+
     this.pages = this.pages < 1 ? 0 : this.pages;
-    this.updateWebExtras();
-  }
-
-  public addLanguage() {
-    this.languages++;
-    this.updateWebExtras();
-  }
-
-  public deleteLanguage() {
-    this.languages--;
     this.languages = this.languages < 1 ? 0 : this.languages;
-    this.updateWebExtras();
+
+    this.updateExtras();
   }
 
   // Validator form function
-  public isMinNumValid(field: number): boolean {
-    let fieldName: string = field === 1 ? 'pages' : 'languages';
-    let fieldNumber: number = Number(this.panelWebForm.get(fieldName)?.value);
-    return fieldNumber < this.minRequired ? false : true;
+  public isMinQuantityValid(fieldName: string): boolean {
+    let quantity: number = Number(this.panelForm.get(fieldName)?.value);
+    return quantity < this.minRequired ? false : true;
   }
 
 
