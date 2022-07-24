@@ -10,7 +10,7 @@ export class CalculatorService {
   private total: number = 0;
   private webExtras: number = 0;
   private totalWithExtras: number = 0;
-  private isNumberType: boolean = true;
+  private isDataValid: boolean = true;
 
   constructor() { }
 
@@ -25,26 +25,24 @@ export class CalculatorService {
   }
 
   public calculateWebExtras(pages: number, languages: number): void {
-    if (Number.isNaN(pages) || Number.isNaN(languages) || !Number.isInteger(pages) || !Number.isInteger(languages)) {
-      this.isNumberType = false;
-    } else {
-      this.isNumberType = true;
-      this.webExtras = (pages * languages) * 30;
+    if (!Number.isInteger(pages) || !Number.isInteger(languages) || Number.isNaN(languages) || Number.isNaN(pages)) {
+      this.isDataValid = false;
+      return
     }
+    this.isDataValid = true;
+    this.webExtras = (pages * languages) * 30;
   }
 
   public getTotalWithExtras(): string {
-    this.totalWithExtras = this.isNumberType ? this.total + this.webExtras : 0;
+    this.totalWithExtras = this.isDataValid ? this.total + this.webExtras : 0;
     return this.formatNumberToCurrency(this.totalWithExtras);
   }
 
   public formatNumberToCurrency(number: number) {
-    // Create our number formatter.
-    var formatter = new Intl.NumberFormat('en-US', {
+    let formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'EUR',
     });
-
     return formatter.format(number);
   }
 }
