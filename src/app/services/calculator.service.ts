@@ -24,7 +24,7 @@ export class CalculatorService {
 
   }
 
-  public calculateWebExtras(pages: number, languages: number): void {
+  public calculateExtras(pages: number, languages: number): void {
     if (!Number.isInteger(pages) || !Number.isInteger(languages) || Number.isNaN(languages) || Number.isNaN(pages)) {
       this.isDataValid = false;
       return
