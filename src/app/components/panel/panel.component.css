@@ -1,10 +1,16 @@
 input {
     width: 50px;
     text-align: center;
+    border-radius: 5px;
+    padding: 5px;
 }
 
-button img {
-    width: 40px;
+.plus-img {
+    width: 50px;
+}
+
+.minus-img {
+    width: 55px;
 }
 
 .form-container {
@@ -16,3 +22,9 @@ button img {
 
 }
 
+button:hover {
+    background-color: white;
+    /* padding: 0px; */
+    border: 1px solid orange;
+
+}

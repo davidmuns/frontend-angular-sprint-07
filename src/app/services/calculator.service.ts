@@ -5,16 +5,13 @@ import { Option } from '../interfaces/option';
   providedIn: 'root'
 })
 export class CalculatorService {
-  private total: number;
-  private webExtras: number;
-  private totalWithExtras: number;
-  private isDataValid: boolean;
+  private total: number = 0;
+  private webExtras: number = 0
+  private totalWithExtras: number = 0
+  private isDataValid: boolean = true;
 
   constructor() {
-    this.total = 0;
-    this.webExtras = 0;
-    this.totalWithExtras = 0;
-    this.isDataValid = false;
+
   }
 
   public calculateTotal(options: Option[]): void {
@@ -27,6 +24,7 @@ export class CalculatorService {
 
   public calculateExtras(pages: number, languages: number): void {
     if (Number.isInteger(pages) === false || Number.isInteger(languages) === false || Number.isNaN(languages) || Number.isNaN(pages)) {
+      this.isDataValid = false;
       return
     }
     this.isDataValid = true;

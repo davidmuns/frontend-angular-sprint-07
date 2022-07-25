@@ -9,18 +9,17 @@ import { Option } from 'src/app/interfaces/option';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-  @Input('optionsFromHomeComponent') options: Option[];
-  pages: number;
-  languages: number;
-  minRequired: number;
+  @Input('optionsFromHomeComponent') options!: Option[];
+  pages: number = 0;
+  languages: number = 0
+  minRequired: number = 1
   panelForm: FormGroup;
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
-    this.pages = 0;
-    this.languages = 0;
-    this.minRequired = 1;
-    this.options = [];
+    // this.pages = 0;
+    // this.languages = 0;
+    // this.minRequired = 1;
 
     // Reactive form instances
     this.panelForm = new FormGroup({
@@ -40,7 +39,7 @@ export class PanelComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public updateExtras(): void {
     this.calculatorService.calculateExtras(Number(this.pages), Number(this.languages));

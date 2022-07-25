@@ -10,11 +10,11 @@ import optionsJson from 'src/assets/options.json'
 })
 export class HomeComponent implements OnInit {
 
-  options: Option[];
+  options: Option[] = optionsJson;
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
-    this.options = optionsJson;
+
   }
 
   ngOnInit(): void { }
