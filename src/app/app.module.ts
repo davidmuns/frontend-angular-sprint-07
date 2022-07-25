@@ -18,7 +18,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     AppRoutingModule
   ],
   providers: [CalculatorService],

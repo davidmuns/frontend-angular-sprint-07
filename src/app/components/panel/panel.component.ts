@@ -9,38 +9,44 @@ import { Option } from 'src/app/interfaces/option';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-  @Input('optionsFromHomeComponent') options!: Option[];
-  pages: number = 0;
-  languages: number = 0;
-  minRequired: number = 1;
-
-  // Reactive form instances
-  panelForm = new FormGroup({
-    pages: new FormControl('',
-      [
-        Validators.required,
-        Validators.min(this.minRequired),
-        Validators.pattern("^[0-9]*$")
-      ]
-    ),
-    languages: new FormControl('',
-      Validators.compose([
-        Validators.required,
-        Validators.min(this.minRequired),
-        Validators.pattern("^[0-9]*$")
-      ]))
-  })
+  @Input('optionsFromHomeComponent') options: Option[];
+  pages: number;
+  languages: number;
+  minRequired: number;
+  panelForm: FormGroup;
 
   // constructor dependency injection
-  constructor(private calculatorService: CalculatorService) { }
+  constructor(private calculatorService: CalculatorService) {
+    this.pages = 0;
+    this.languages = 0;
+    this.minRequired = 1;
+    this.options = [];
 
-  ngOnInit(): void { }
+    // Reactive form instances
+    this.panelForm = new FormGroup({
+      pages: new FormControl('',
+        [
+          Validators.required,
+          Validators.min(this.minRequired),
+          Validators.pattern("^[0-9]*$")
+        ]
+      ),
+      languages: new FormControl('',
+        Validators.compose([
+          Validators.required,
+          Validators.min(this.minRequired),
+          Validators.pattern("^[0-9]*$")
+        ]))
+    })
+  }
 
-  public updateExtras() {
+  ngOnInit(): void {}
+
+  public updateExtras(): void {
     this.calculatorService.calculateExtras(Number(this.pages), Number(this.languages));
   }
 
-  public setExtra(extra: string, action: string) {
+  public setExtra(extra: string, action: string): void {
     if (extra === 'page' && action === 'add') this.pages++;
     if (extra === 'page' && action === 'delete') this.pages--;
 

@@ -5,26 +5,28 @@ import { Option } from '../interfaces/option';
   providedIn: 'root'
 })
 export class CalculatorService {
-  private total: number = 0;
-  private webExtras: number = 0;
-  private totalWithExtras: number = 0;
-  private isDataValid: boolean = true;
+  private total: number;
+  private webExtras: number;
+  private totalWithExtras: number;
+  private isDataValid: boolean;
 
-  constructor() { }
+  constructor() {
+    this.total = 0;
+    this.webExtras = 0;
+    this.totalWithExtras = 0;
+    this.isDataValid = false;
+  }
 
-  public calculateTotal(options: Option[]) {
-    let tempSum = 0;
+  public calculateTotal(options: Option[]): void {
+    let tempTotal = 0;
     options.forEach(option => {
-      if (option.isChecked) {
-        tempSum += option.price;
-      }
+      if (option.isChecked) tempTotal += option.price;
     })
-    this.total = tempSum;
+    this.total = tempTotal;
   }
 
   public calculateExtras(pages: number, languages: number): void {
-    if (!Number.isInteger(pages) || !Number.isInteger(languages) || Number.isNaN(languages) || Number.isNaN(pages)) {
-      this.isDataValid = false;
+    if (Number.isInteger(pages) === false || Number.isInteger(languages) === false || Number.isNaN(languages) || Number.isNaN(pages)) {
       return
     }
     this.isDataValid = true;
@@ -36,7 +38,7 @@ export class CalculatorService {
     return this.formatNumberToCurrency(this.totalWithExtras);
   }
 
-  public formatNumberToCurrency(number: number) {
+  public formatNumberToCurrency(number: number): string {
     let formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'EUR',
