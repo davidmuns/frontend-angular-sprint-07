@@ -14,6 +14,9 @@
       <button class="delete btn" (click)="setExtra('page', 'delete')">
         <img class="minus-img" src="../../../assets/minus.svg" alt="btn-minus" />
       </button>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+        <i class="fa-solid fa-circle-info fa-2x"></i>
+      </button>
 
       <!-- Required alert message -->
       <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['required']"
@@ -67,3 +70,7 @@
 </div>
 
 <!-- <p> {{ panelWebForm.value | json }} </p> -->
+
+<span *ngIf="true">
+  <app-web-panel-modal></app-web-panel-modal>
+</span>
