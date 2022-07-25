@@ -10,8 +10,9 @@
       <p>Número de páginas:</p>
       &nbsp;
 
-      <button class="add btn bg-info mx-1" (click)="setExtra('page', 'add')">
-        +
+      <button class="add btn" (click)="setExtra('page', 'add')">
+        <!-- <img src="../../../assets/btn-plus.svg" /> -->
+        <i class="fa-solid fa-square-plus fa-2x"></i>
       </button>
       <input
         class="my-1"
@@ -20,11 +21,8 @@
         (keyup)="updateExtras()"
         formControlName="pages"
       />
-      <button
-        class="delete btn bg-info mx-1"
-        (click)="setExtra('page', 'delete')"
-      >
-        -
+      <button class="delete btn" (click)="setExtra('page', 'delete')">
+        <img src="../../../assets/btn-minus.svg" />
       </button>
 
       <!-- Required alert message -->
@@ -54,11 +52,8 @@
       <p>Número de idiomas:</p>
       &nbsp;
 
-      <button
-        class="add btn bg-info mx-1"
-        (click)="setExtra('language', 'add')"
-      >
-        +
+      <button class="add btn" (click)="setExtra('language', 'add')">
+        <img src="../../../assets/btn-plus.svg" />
       </button>
       <input
         class="my-1"
@@ -67,11 +62,8 @@
         (keyup)="updateExtras()"
         formControlName="languages"
       />
-      <button
-        class="delete btn bg-info mx-1"
-        (click)="setExtra('language', 'delete')"
-      >
-        -
+      <button class="delete btn" (click)="setExtra('language', 'delete')">
+        <img src="../../../assets/btn-minus.svg" />
       </button>
 
       <!-- Required alert message -->
