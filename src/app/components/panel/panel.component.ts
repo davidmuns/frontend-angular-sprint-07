@@ -14,7 +14,7 @@ export class PanelComponent implements OnInit {
   languages: number = 0
   minRequired: number = 1
   panelForm: FormGroup;
-  modalTexts: string[] = ["Enter de number of pages you want your website to have.", "Enter de number of languages you want your website to have."];
+  modalTexts: string[] = ["Enter the number of pages you want your website to have.", "Enter the number of languages you want your website to have."];
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
