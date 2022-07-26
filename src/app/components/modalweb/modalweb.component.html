@@ -1,12 +1,8 @@
 <ng-template #contenido let-modal>
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h4>{{ modalText }}</h4>
-      </div>
-    </div>
+  <div class="modal-body p-4">
+    <h6 style="text-align: center;">{{ modalText }}</h6>
   </div>
 </ng-template>
-<button class="btn" (click)="modal.open(contenido)">
-  <i class="fa-solid fa-circle-info fa-2x"></i>
+<button class="btn" (click)="getModal().open(contenido)">
+  <img class="info-icon" src="../../../assets/information.svg" alt="info-btn">
 </button>
