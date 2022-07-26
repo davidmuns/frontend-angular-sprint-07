@@ -13,6 +13,14 @@ input {
     width: 55px;
 }
 
+.plus-img:hover {
+    width: 52px;
+}
+
+.minus-img:hover {
+    width: 57px;
+}
+
 .form-container {
     border: 3px solid black;
     background-color: rgb(211, 210, 210);
@@ -22,9 +30,7 @@ input {
 
 }
 
-button:hover {
-    background-color: white;
-    /* padding: 0px; */
-    border: 1px solid orange;
-
+button {
+    background-color: transparent;
+    border: none;
 }
