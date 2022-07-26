@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
-import { WebPanelModalComponent } from './modal/web-panel-modal/web-panel-modal.component';
+import { ModalWebComponent } from './components/modalweb/modalweb.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { WebPanelModalComponent } from './modal/web-panel-modal/web-panel-modal.
     HomeComponent,
     PanelComponent,
     WelcomePageComponent,
-    WebPanelModalComponent,
+    ModalWebComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [CalculatorService],
   bootstrap: [AppComponent]

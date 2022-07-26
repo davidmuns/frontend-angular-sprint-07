@@ -14,6 +14,9 @@ export class PanelComponent implements OnInit {
   languages: number = 0
   minRequired: number = 1
   panelForm: FormGroup;
+  modalTexts: string[] = ["Pages number", "Languages number"];
+  showPagesInfo: boolean = false;
+  showLanguagesInfo: boolean = false;
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
@@ -62,6 +65,19 @@ export class PanelComponent implements OnInit {
   public isMinQuantityValid(fieldName: string): boolean {
     let quantity: number = Number(this.panelForm.get(fieldName)?.value);
     return quantity < this.minRequired ? false : true;
+  }
+
+  public setInfo(option: string){
+    if(option === 'pagesInfo') {
+      this.showLanguagesInfo = false;
+      this.showPagesInfo = true;
+
+    }
+    if(option === 'languagesInfo') {
+      this.showPagesInfo = false;
+      this.showLanguagesInfo = true;
+
+    }
   }
 
 
