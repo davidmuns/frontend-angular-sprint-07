@@ -16,13 +16,13 @@
   <p class="fs-5">¿Qué quieres hacer?</p>
 
   <!-- Checkbox form -->
-  <form *ngFor="let option of options; let i = index">
+  <form *ngFor="let servicio of servicios; let i = index">
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" name="any-name-is-valid" [(ngModel)]="option.isChecked"
+      <input type="checkbox" class="form-check-input" name="any-name-is-valid" [(ngModel)]="servicio.isChecked"
         (change)="updateTotal()" /><label class="form-check-label mx-1">{{
-        option.label }}</label>
+        servicio.label }}</label>
       <span *ngIf="i === 0">
-        <app-panel [optionsFromHomeComponent]="options"></app-panel>
+        <app-panel [serviciosFromHomeComponent]="servicios"></app-panel>
       </span>
     </div>
   </form>

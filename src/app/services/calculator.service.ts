@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IOption } from '../models/ioption';
+import { IServicio } from '../models/iservicio';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +16,10 @@ export class CalculatorService {
 
   }
 
-  public calculateTotal(options: IOption[]): void {
+  public calculateTotal(servicios: IServicio[]): void {
     let tempTotal = 0;
-    options.forEach(option => {
-      if (option.isChecked) tempTotal += option.price;
+    servicios.forEach(servicio => {
+      if (servicio.isChecked) tempTotal += servicio.price;
     })
     this.total = tempTotal;
   }

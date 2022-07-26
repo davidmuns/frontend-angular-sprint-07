@@ -1,7 +1,7 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, OnInit } from '@angular/core';
-import { IOption } from '../../models/ioption';
-import optionsJson from 'src/assets/options.json'
+import { IServicio } from '../../models/iservicio';
+import serviciosJson from 'src/assets/servicios.json'
 import { Budget } from '../../models/budget';
 
 @Component({
@@ -11,7 +11,7 @@ import { Budget } from '../../models/budget';
 })
 export class HomeComponent implements OnInit {
 
-  options: IOption[] = optionsJson;
+  servicios: IServicio[] = serviciosJson;
   budgets: Budget[] = [];
 
   // constructor dependency injection
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateTotal() {
-    this.calculatorService.calculateTotal(this.options);
+    this.calculatorService.calculateTotal(this.servicios);
   }
 
   public getTotalWithExtras(): string {
@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
   }
 
   public setBudget(name: string, client: string) {
-    const options: string[] = [];
-    this.options.forEach(option => {
-      if (option.isChecked) options.push(option.label);
+    const servicios: string[] = [];
+    this.servicios.forEach(servicio => {
+      if (servicio.isChecked) servicios.push(servicio.label);
     })
     const pages = this.calculatorService.getPages();
     const languages = this.calculatorService.getLanguages();
-    const budget: Budget = new Budget(name, client, options, this.getTotalWithExtras());
+    const budget: Budget = new Budget(name, client, servicios, this.getTotalWithExtras());
     budget.setWebExtras(pages, languages);
 
 

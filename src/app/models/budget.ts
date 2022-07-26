@@ -1,17 +1,17 @@
 export class Budget {
     private name: string;
     private client: string;
-    private options: string[];
+    private services: string[];
     private webExtras = {
         pages: 0,
         languages: 0
     }
     private total: string;
 
-    constructor(name: string, client: string, options: string[], total: string) {
+    constructor(name: string, client: string, services: string[], total: string) {
         this.name = name;
         this.client = client;
-        this.options = options;
+        this.services = services;
         this.total = total;
     }
 
