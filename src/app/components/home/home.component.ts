@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
   }
 
   public setBudget(name: string, client: string) {
-    const servicios: string[] = [];
+    const servicioLabels: string[] = [];
     this.servicios.forEach(servicio => {
-      if (servicio.isChecked) servicios.push(servicio.label);
+      if (servicio.isChecked) servicioLabels.push(servicio.label);
     })
     const pages = this.calculatorService.getPages();
     const languages = this.calculatorService.getLanguages();
-    const budget: Budget = new Budget(name, client, servicios, this.getTotalWithExtras());
+    const budget: Budget = new Budget(name, client, servicioLabels, this.getTotalWithExtras());
     budget.setWebExtras(pages, languages);
 
 
