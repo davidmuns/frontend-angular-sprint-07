@@ -1,6 +1,10 @@
 <ng-template #contenido let-modal>
-  <div class="modal-body">
-    <h4>{{ modalText }}</h4>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4>{{ modalText }}</h4>
+      </div>
+    </div>
   </div>
 </ng-template>
 <button class="btn" (click)="modal.open(contenido)">

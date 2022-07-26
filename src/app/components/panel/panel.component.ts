@@ -14,16 +14,10 @@ export class PanelComponent implements OnInit {
   languages: number = 0
   minRequired: number = 1
   panelForm: FormGroup;
-  modalTexts: string[] = ["Pages number", "Languages number"];
-  showPagesInfo: boolean = false;
-  showLanguagesInfo: boolean = false;
+  modalTexts: string[] = ["Enter de number of pages you want your website to have.", "Enter de number of languages you want your website to have."];
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
-    // this.pages = 0;
-    // this.languages = 0;
-    // this.minRequired = 1;
-
     // Reactive form instances
     this.panelForm = new FormGroup({
       pages: new FormControl('',
@@ -66,19 +60,4 @@ export class PanelComponent implements OnInit {
     let quantity: number = Number(this.panelForm.get(fieldName)?.value);
     return quantity < this.minRequired ? false : true;
   }
-
-  public setInfo(option: string){
-    if(option === 'pagesInfo') {
-      this.showLanguagesInfo = false;
-      this.showPagesInfo = true;
-
-    }
-    if(option === 'languagesInfo') {
-      this.showPagesInfo = false;
-      this.showLanguagesInfo = true;
-
-    }
-  }
-
-
 }
