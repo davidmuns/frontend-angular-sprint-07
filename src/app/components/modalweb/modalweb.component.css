@@ -1,0 +1,12 @@
+.info-icon {
+    width: 30px;
+}
+
+.info-icon:hover {
+    width: 35px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
