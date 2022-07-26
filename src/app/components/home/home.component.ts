@@ -12,7 +12,6 @@ import { Budget } from '../../models/budget';
 export class HomeComponent implements OnInit {
 
   servicios: IServicio[] = serviciosJson;
-  budgets: Budget[] = [];
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
@@ -29,19 +28,7 @@ export class HomeComponent implements OnInit {
     return this.calculatorService.getTotalWithExtras();
   }
 
-  public setBudget(name: string, client: string) {
-    const servicioLabels: string[] = [];
-    this.servicios.forEach(servicio => {
-      if (servicio.isChecked) servicioLabels.push(servicio.label);
-    })
-    const pages = this.calculatorService.getPages();
-    const languages = this.calculatorService.getLanguages();
-    const budget: Budget = new Budget(name, client, servicioLabels, this.getTotalWithExtras());
-    budget.setWebExtras(pages, languages);
-
-
-    this.budgets.push(budget);
-    console.log(this.budgets);
-
+  public createBudget(name: string, client: string) {
+    this.calculatorService.createBudget(name, client, this.servicios);
   }
 }

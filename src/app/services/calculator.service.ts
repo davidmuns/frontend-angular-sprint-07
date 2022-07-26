@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Budget } from '../models/budget';
 import { IServicio } from '../models/iservicio';
 
 @Injectable({
@@ -11,6 +12,8 @@ export class CalculatorService {
   private isDataValid: boolean = true;
   private pages: number = 0
   private languages: number = 0;
+  private servicios: IServicio[] = []
+  budgets: Budget[] = [];
 
   constructor() {
 
@@ -54,5 +57,20 @@ export class CalculatorService {
       currency: 'EUR',
     });
     return formatter.format(number);
+  }
+
+  public createBudget(budgetName: string, clientName: string, servicios: IServicio[]) {
+    let labels: string[] = servicios
+      .filter(servicio => servicio.isChecked)
+      .map(servicio => servicio.label);
+
+    const budget: Budget = new Budget(budgetName, clientName, labels, this.getTotalWithExtras());
+    budget.setWebExtras(this.pages, this.languages);
+    this.budgets.push(budget);
+    console.log(this.getBudgets());
+  }
+
+  public getBudgets(): Budget[] {
+    return this.budgets;
   }
 }
