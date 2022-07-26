@@ -1,4 +1,4 @@
-export interface Option {
+export interface IOption {
     label: string;
     price: number;
     isChecked: boolean;

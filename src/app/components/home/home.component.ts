@@ -1,8 +1,8 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, OnInit } from '@angular/core';
-import { Option } from '../../interfaces/option';
+import { IOption } from '../../models/ioption';
 import optionsJson from 'src/assets/options.json'
-import { Budget } from '../../interfaces/budget';
+import { Budget } from '../../models/budget';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { Budget } from '../../interfaces/budget';
 })
 export class HomeComponent implements OnInit {
 
-  options: Option[] = optionsJson;
+  options: IOption[] = optionsJson;
   budgets: Budget[] = [];
 
   // constructor dependency injection

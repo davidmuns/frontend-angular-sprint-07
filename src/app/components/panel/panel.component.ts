@@ -1,7 +1,7 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Option } from 'src/app/interfaces/option';
+import { IOption } from 'src/app/models/ioption';
 
 @Component({
   selector: 'app-panel',
@@ -9,7 +9,7 @@ import { Option } from 'src/app/interfaces/option';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-  @Input('optionsFromHomeComponent') options!: Option[];
+  @Input('optionsFromHomeComponent') options!: IOption[];
   pages: number = 0;
   languages: number = 0
   minRequired: number = 1
