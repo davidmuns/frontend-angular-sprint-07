@@ -1,10 +1,6 @@
 <div class="container d-flex align-items-center">
   <!-- Reactive form -->
-  <form
-    [formGroup]="panelForm"
-    class="form-container my-3 py-5"
-    *ngIf="options[0].isChecked"
-  >
+  <form [formGroup]="panelForm" class="form-container my-3 py-5" *ngIf="options[0].isChecked">
     <!-- Input and buttons for pages -->
     <div class="mx-3 d-flex align-items-baseline">
       <p>Número de páginas:</p>
@@ -14,28 +10,16 @@
         <img class="plus-img" src="../../../assets/plus.svg" alt="btn-plus" />
         <!-- <i class="fa-solid fa-square-plus fa-2x"></i> -->
       </button>
-      <input
-        class="my-1"
-        type="text"
-        [(ngModel)]="pages"
-        (keyup)="updateExtras()"
-        formControlName="pages"
-      />
+      <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateExtras()" formControlName="pages" />
       <button class="delete btn" (click)="setExtra('page', 'delete')">
-        <img
-          class="minus-img"
-          src="../../../assets/minus.svg"
-          alt="btn-minus"
-        />
+        <img class="minus-img" src="../../../assets/minus.svg" alt="btn-minus" />
       </button>
 
       <app-modalweb [modalTextFromPanel]="modalTexts[0]"></app-modalweb>
 
       <!-- Required alert message -->
-      <div
-        *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['required']"
-        class="alert alert-danger"
-      >
+      <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['required']"
+        class="alert alert-danger">
         This field is required.
       </div>
 
@@ -45,10 +29,8 @@
       </div>
 
       <!-- Only integers alert message -->
-      <div
-        *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['pattern']"
-        class="alert alert-danger"
-      >
+      <div *ngIf="panelForm.get('pages')?.touched && panelForm.get('pages')?.errors?.['pattern']"
+        class="alert alert-danger">
         Only positive integers are allowed.
       </div>
     </div>
@@ -61,28 +43,16 @@
       <button class="add btn" (click)="setExtra('language', 'add')">
         <img class="plus-img" src="../../../assets/plus.svg" alt="btn-plus" />
       </button>
-      <input
-        class="my-1"
-        type="text"
-        [(ngModel)]="languages"
-        (keyup)="updateExtras()"
-        formControlName="languages"
-      />
-      <button
-        class="delete btn"
-        (click)="setExtra('language', 'delete')"
-        alt="btn-minus"
-      >
+      <input class="my-1" type="text" [(ngModel)]="languages" (keyup)="updateExtras()" formControlName="languages" />
+      <button class="delete btn" (click)="setExtra('language', 'delete')" alt="btn-minus">
         <img class="minus-img" src="../../../assets/minus.svg" />
       </button>
 
       <app-modalweb [modalTextFromPanel]="modalTexts[1]"></app-modalweb>
 
       <!-- Required alert message -->
-      <div
-        *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['required']"
-        class="alert alert-danger"
-      >
+      <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['required']"
+        class="alert alert-danger">
         This field is required.
       </div>
 
@@ -92,10 +62,8 @@
       </div>
 
       <!-- Only inetgers alert message -->
-      <div
-        *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['pattern']"
-        class="alert alert-danger"
-      >
+      <div *ngIf="panelForm.get('languages')?.touched && panelForm.get('languages')?.errors?.['pattern']"
+        class="alert alert-danger">
         Only positive integers are allowed.
       </div>
     </div>
