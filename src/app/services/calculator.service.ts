@@ -9,6 +9,8 @@ export class CalculatorService {
   private webExtras: number = 0
   private totalWithExtras: number = 0
   private isDataValid: boolean = true;
+  private pages: number = 0
+  private languages: number = 0;
 
   constructor() {
 
@@ -22,11 +24,21 @@ export class CalculatorService {
     this.total = tempTotal;
   }
 
+  public getPages(): number {
+    return this.pages;
+  }
+
+  public getLanguages(): number {
+    return this.languages;
+  }
+
   public calculateExtras(pages: number, languages: number): void {
     if (Number.isInteger(pages) === false || Number.isInteger(languages) === false || Number.isNaN(languages) || Number.isNaN(pages)) {
       this.isDataValid = false;
       return
     }
+    this.pages = pages;
+    this.languages = languages;
     this.isDataValid = true;
     this.webExtras = (pages * languages) * 30;
   }
