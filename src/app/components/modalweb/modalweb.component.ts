@@ -11,9 +11,16 @@ export class ModalWebComponent implements OnInit {
 
   @Input('modalTextFromPanel') modalText: string = "";
 
-  constructor(public modal: NgbModal) { }
+
+  constructor(private modal: NgbModal) {
+
+  }
 
   ngOnInit(): void {
+  }
+
+  public getModal() {
+    return this.modal;
   }
 
 }
