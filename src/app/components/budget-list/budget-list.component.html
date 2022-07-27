@@ -1,10 +1,24 @@
-<div class="container">
-  <p *ngFor="let budget of budgets">
-    Budget name: {{ budget.getBudgetName() }} <br />
-    Client: {{ budget.getClientName() }} <br />
-    Services: {{ budget.getLabels() }} <br />
-    Extra pages: {{ budget.getWebExtras().pages }} <br />
-    Extra languages: {{ budget.getWebExtras().languages }} <br />
-    Total: {{ budget.getTotal() }}
-  </p>
+<div class="container mt-5">
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Budget name</th>
+        <th>Client</th>
+        <th>Services</th>
+        <th>Pages</th>
+        <th>Languages</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let budget of budgets">
+      <tr>
+        <td>{{ budget.getBudgetName() }}</td>
+        <td>{{ budget.getClientName() }}</td>
+        <td>{{ budget.getLabels() }}</td>
+        <td>{{ budget.getWebExtras().pages }}</td>
+        <td>{{ budget.getWebExtras().languages }}</td>
+        <td>{{ budget.getTotal() }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
