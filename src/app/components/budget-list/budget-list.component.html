@@ -16,7 +16,11 @@
       <td>{{ i + 1 }}</td>
       <td>{{ budget.getBudgetName() }}</td>
       <td>{{ budget.getClientName() }}</td>
-      <td>{{ budget.getLabels() }}</td>
+      <td>
+        <ul *ngFor="let label of budget.getLabels()">
+          <li>{{label}}</li>
+        </ul>
+      </td>
       <td>{{ budget.getWebExtras().pages }}</td>
       <td>{{ budget.getWebExtras().languages }}</td>
       <td>{{ budget.getTotal() }}</td>
