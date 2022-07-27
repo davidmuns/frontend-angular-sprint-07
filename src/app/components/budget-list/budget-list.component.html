@@ -1,24 +1,25 @@
-<div class="container mt-5">
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <th>Budget name</th>
-        <th>Client</th>
-        <th>Services</th>
-        <th>Pages</th>
-        <th>Languages</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let budget of budgets">
-      <tr>
-        <td>{{ budget.getBudgetName() }}</td>
-        <td>{{ budget.getClientName() }}</td>
-        <td>{{ budget.getLabels() }}</td>
-        <td>{{ budget.getWebExtras().pages }}</td>
-        <td>{{ budget.getWebExtras().languages }}</td>
-        <td>{{ budget.getTotal() }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<p class="fs-5">Budget list</p>
+<table class="table mt-3 shadow-sm">
+  <thead class="table-secondary">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Client</th>
+      <th>Services</th>
+      <th>Pages</th>
+      <th>Languages</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let budget of budgets; let i = index">
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td>{{ budget.getBudgetName() }}</td>
+      <td>{{ budget.getClientName() }}</td>
+      <td>{{ budget.getLabels() }}</td>
+      <td>{{ budget.getWebExtras().pages }}</td>
+      <td>{{ budget.getWebExtras().languages }}</td>
+      <td>{{ budget.getTotal() }}</td>
+    </tr>
+  </tbody>
+</table>

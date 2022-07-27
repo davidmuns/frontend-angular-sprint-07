@@ -37,6 +37,7 @@ export class PanelComponent implements OnInit {
           Validators.pattern("^[0-9]*$")
         ]))
     })
+
   }
 
   ngOnInit(): void { }
@@ -46,6 +47,7 @@ export class PanelComponent implements OnInit {
   }
 
   public setExtra(extra: string, action: string): void {
+
     if (extra === 'page' && action === 'add') this.pages++;
     if (extra === 'page' && action === 'delete') this.pages--;
     this.sendPagesToHome.emit(this.pages);

@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
 
   public getPagesFromPanel(page: number): void {
 
-
   }
 
   public getLanguagesFromPanel(language: number): void { }
