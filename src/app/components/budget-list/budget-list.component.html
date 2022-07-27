@@ -1,0 +1,10 @@
+<div class="container">
+  <p *ngFor="let budget of budgets">
+    Budget name: {{ budget.getBudgetName() }} <br />
+    Client: {{ budget.getClientName() }} <br />
+    Services: {{ budget.getLabels() }} <br />
+    Extra pages: {{ budget.getWebExtras().pages }} <br />
+    Extra languages: {{ budget.getWebExtras().languages }} <br />
+    Total: {{ budget.getTotal() }}
+  </p>
+</div>

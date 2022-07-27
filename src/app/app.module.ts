@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { ModalWebComponent } from './components/modalweb/modalweb.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BudgetListComponent } from './components/budget-list/budget-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     PanelComponent,
     WelcomePageComponent,
-    ModalWebComponent
+    ModalWebComponent,
+    BudgetListComponent
   ],
   imports: [
     BrowserModule,

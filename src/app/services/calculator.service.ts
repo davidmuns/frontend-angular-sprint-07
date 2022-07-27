@@ -67,7 +67,7 @@ export class CalculatorService {
     const budget: Budget = new Budget(budgetName, clientName, labels, this.getTotalWithExtras());
     budget.setWebExtras(this.pages, this.languages);
     this.budgets.push(budget);
-    console.log(this.getBudgets());
+
   }
 
   public getBudgets(): Budget[] {
