@@ -12,6 +12,7 @@ import { Budget } from '../../models/budget';
 export class HomeComponent implements OnInit {
 
   servicios: IServicio[] = serviciosJson;
+  isDisabled: boolean = false;
 
   // constructor dependency injection
   constructor(private calculatorService: CalculatorService) {
@@ -21,6 +22,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateTotal() {
+    const pages: number = this.calculatorService.getPages();
+    console.log(pages);
+
+    const languages: number = this.calculatorService.getLanguages();
+    this.isDisabled = pages > 0 && languages > 0 ? false : true;
     this.calculatorService.calculateTotal(this.servicios);
   }
 

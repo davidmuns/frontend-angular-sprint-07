@@ -69,6 +69,7 @@
             class="btn btn-secondary"
             style="width: 120px"
             (click)="createBudget(name.value, client.value)"
+            [disabled]="isDisabled"
           >
             Add budget
           </button>
