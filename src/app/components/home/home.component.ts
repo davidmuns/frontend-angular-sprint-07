@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateTotal() {
+    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
     this.calculatorService.calculateTotal(this.servicios);
   }
 
@@ -37,8 +38,14 @@ export class HomeComponent implements OnInit {
   }
 
   public getPagesFromPanel(page: number): void {
-
+    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
+    this.updateTotal();
+    this.pages = page;
   }
 
-  public getLanguagesFromPanel(language: number): void { }
+  public getLanguagesFromPanel(language: number): void {
+    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
+    this.updateTotal();
+    this.languages = language;
+  }
 }
