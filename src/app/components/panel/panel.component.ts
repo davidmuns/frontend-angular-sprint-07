@@ -1,5 +1,5 @@
 import { CalculatorService } from './../../services/calculator.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IServicio } from 'src/app/models/iservicio';
 
@@ -9,7 +9,10 @@ import { IServicio } from 'src/app/models/iservicio';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-  @Input('serviciosFromHomeComponent') servicios!: IServicio[];
+  @Input('sendServicesToPanel') servicios!: IServicio[];
+  @Output() sendPagesToHome = new EventEmitter<number>();
+  @Output() sendLanguagesToHome = new EventEmitter<number>();
+
   pages: number = 0;
   languages: number = 0
   minRequired: number = 1
@@ -45,9 +48,11 @@ export class PanelComponent implements OnInit {
   public setExtra(extra: string, action: string): void {
     if (extra === 'page' && action === 'add') this.pages++;
     if (extra === 'page' && action === 'delete') this.pages--;
+    this.sendPagesToHome.emit(this.pages);
 
     if (extra === 'language' && action === 'add') this.languages++;
     if (extra === 'language' && action === 'delete') this.languages--;
+    this.sendLanguagesToHome.emit(this.languages);
 
     this.pages = this.pages < 1 ? 0 : this.pages;
     this.languages = this.languages < 1 ? 0 : this.languages;
