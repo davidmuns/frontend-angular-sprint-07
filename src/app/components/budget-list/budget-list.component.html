@@ -1,19 +1,27 @@
+<div class="d-flex justify-content-around mb-3">
+  <button class="btn bg-secondary" (click)="sortBudgetListAlphabeticallyByName()">Sort by name</button>
+  <button class="btn bg-secondary" (click)="sortBudgetListByDate()">Sort by date</button>
+  <button class="btn bg-secondary">Reset</button>
+
+</div>
+
 <p class="fs-5">Budget list</p>
 <table class="table mt-3 shadow-sm">
   <thead class="table-secondary">
     <tr>
-      <th>#</th>
+      <th>id</th>
       <th>Name</th>
       <th>Client</th>
       <th>Services</th>
       <th>Pages</th>
       <th>Languages</th>
       <th>Total</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody *ngFor="let budget of budgets; let i = index">
     <tr>
-      <td>{{ i + 1 }}</td>
+      <td>{{ budget.getId() }}</td>
       <td>{{ budget.getBudgetName() }}</td>
       <td>{{ budget.getClientName() }}</td>
       <td>
@@ -24,6 +32,7 @@
       <td>{{ budget.getWebExtras().pages }}</td>
       <td>{{ budget.getWebExtras().languages }}</td>
       <td>{{ budget.getTotal() }}</td>
+      <td>{{ budget.getDate().toLocaleDateString() }}</td>
     </tr>
   </tbody>
 </table>
