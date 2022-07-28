@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateTotal() {
-    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    this.isBtnAddBudgetDisabled = this.getResultCondition();
     this.calculatorService.calculateTotal(this.servicios);
   }
 
@@ -39,15 +39,15 @@ export class HomeComponent implements OnInit {
 
   public getPagesFromPanel(page: number): void {
     this.pages = page;
-    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    this.isBtnAddBudgetDisabled = this.getResultCondition();
   }
 
   public getLanguagesFromPanel(language: number): void {
     this.languages = language;
-    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    this.isBtnAddBudgetDisabled = this.getResultCondition();
   }
 
-  public getResultDisableBudgetButtonCondition(): boolean {
+  public getResultCondition(): boolean {
     return this.servicios[0].isChecked &&
       (
         this.pages < 1 ||
