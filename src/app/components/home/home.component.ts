@@ -1,8 +1,6 @@
 import { CalculatorService } from './../../services/calculator.service';
 import { Component, OnInit } from '@angular/core';
 import { IServicio } from '../../models/iservicio';
-import serviciosJson from 'src/assets/servicios.json'
-import { Budget } from '../../models/budget';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +9,12 @@ import { Budget } from '../../models/budget';
 })
 export class HomeComponent implements OnInit {
 
-  servicios: IServicio[] = serviciosJson;
   isBtnAddBudgetDisabled: boolean = false;
-  pages: number = 0;
-  languages: number = 0;
-  errors: number = 0;
+  private pages: number = 0;
+  private languages: number = 0;
 
   // constructor dependency injection
-  constructor(private calculatorService: CalculatorService) {
+  constructor(public readonly calculatorService: CalculatorService) {
 
   }
 
@@ -26,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   public updateTotal() {
     this.isBtnAddBudgetDisabled = this.getResultCondition();
-    this.calculatorService.calculateTotal(this.servicios);
+    this.calculatorService.calculateTotal();
   }
 
   public getTotalWithExtras(): string {
@@ -34,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   public createBudget(name: string, client: string) {
-    this.calculatorService.createBudget(name, client, this.servicios);
+    this.calculatorService.createBudget(name, client);
   }
 
   public getPagesFromPanel(page: number): void {
@@ -48,7 +44,8 @@ export class HomeComponent implements OnInit {
   }
 
   private getResultCondition(): boolean {
-    return this.servicios[0].isChecked &&
+    const servicios: IServicio[] = this.calculatorService.getServicios();
+    return servicios[0].isChecked &&
       (
         this.pages < 1 ||
         Number.isNaN(this.pages) ||

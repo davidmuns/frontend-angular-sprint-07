@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Budget } from '../models/budget';
 import { IServicio } from '../models/iservicio';
+import serviciosJson from 'src/assets/servicios.json'
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,23 @@ export class CalculatorService {
   private isDataValid: boolean = true;
   private pages: number = 0
   private languages: number = 0;
-  private servicios: IServicio[] = []
+  private servicios: IServicio[] = serviciosJson;
   private budgets: Budget[] = [];
 
   constructor() {
 
   }
 
-  public calculateTotal(servicios: IServicio[]): void {
+  public calculateTotal(): void {
     let tempTotal = 0;
-    servicios.forEach(servicio => {
+    this.servicios.forEach(servicio => {
       if (servicio.isChecked) tempTotal += servicio.price;
     })
     this.total = tempTotal;
+  }
+
+  public getServicios(): IServicio[] {
+    return this.servicios;
   }
 
   public getPages(): number {
@@ -59,8 +64,8 @@ export class CalculatorService {
     return formatter.format(number);
   }
 
-  public createBudget(budgetName: string, clientName: string, servicios: IServicio[]) {
-    let labels: string[] = servicios
+  public createBudget(budgetName: string, clientName: string) {
+    let labels: string[] = this.servicios
       .filter(servicio => servicio.isChecked)
       .map(servicio => servicio.label);
 
