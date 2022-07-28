@@ -48,13 +48,27 @@ export class PanelComponent implements OnInit {
 
   public setExtra(extra: string, action: string): void {
 
-    if (extra === 'page' && action === 'add') this.pages++;
-    if (extra === 'page' && action === 'delete') this.pages--;
-    this.sendPagesToHome.emit(this.pages);
+    if (extra === 'page' && action === 'add') {
+      this.pages++;
+      this.sendPagesToHome.emit(this.pages);
 
-    if (extra === 'language' && action === 'add') this.languages++;
-    if (extra === 'language' && action === 'delete') this.languages--;
-    this.sendLanguagesToHome.emit(this.languages);
+    }
+    if (extra === 'page' && action === 'delete') {
+      this.pages--;
+      this.sendPagesToHome.emit(this.pages);
+
+    }
+
+
+    if (extra === 'language' && action === 'add') {
+      this.languages++;
+      this.sendLanguagesToHome.emit(this.languages);
+    }
+    if (extra === 'language' && action === 'delete') {
+      this.languages--;
+      this.sendLanguagesToHome.emit(this.languages);
+    }
+
 
     this.pages = this.pages < 1 ? 0 : this.pages;
     this.languages = this.languages < 1 ? 0 : this.languages;

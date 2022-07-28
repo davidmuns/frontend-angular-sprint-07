@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
 
   public updateTotal() {
     this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
+    console.log("pages | languages: ",this.pages, this.languages, this.isBtnAddBudgetDisabled);
+    console.log();
+
     this.calculatorService.calculateTotal(this.servicios);
   }
 
@@ -38,14 +41,12 @@ export class HomeComponent implements OnInit {
   }
 
   public getPagesFromPanel(page: number): void {
-    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
-    this.updateTotal();
     this.pages = page;
+    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
   }
 
   public getLanguagesFromPanel(language: number): void {
-    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
-    this.updateTotal();
     this.languages = language;
+    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
   }
 }

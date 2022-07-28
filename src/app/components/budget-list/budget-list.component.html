@@ -17,8 +17,8 @@
       <td>{{ budget.getBudgetName() }}</td>
       <td>{{ budget.getClientName() }}</td>
       <td>
-        <ul *ngFor="let label of budget.getLabels()">
-          <li>{{label}}</li>
+        <ul *ngFor="let label of budget.getLabels()" style="list-style: none">
+          <li>{{ label }}</li>
         </ul>
       </td>
       <td>{{ budget.getWebExtras().pages }}</td>
