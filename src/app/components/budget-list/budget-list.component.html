@@ -19,7 +19,7 @@
       <th>Date</th>
     </tr>
   </thead>
-  <tbody *ngFor="let budget of budgets; let i = index">
+  <tbody *ngFor="let budget of this.calculatorService.getBudgets(); let i = index">
     <tr>
       <td>{{ budget.getId() }}</td>
       <td>{{ budget.getBudgetName() }}</td>

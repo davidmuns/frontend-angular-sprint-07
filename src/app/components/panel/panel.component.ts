@@ -1,5 +1,5 @@
 import { CalculatorService } from './../../services/calculator.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IServicio } from 'src/app/models/iservicio';
 
@@ -8,6 +8,7 @@ import { IServicio } from 'src/app/models/iservicio';
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.css']
 })
+
 export class PanelComponent implements OnInit {
   @Input('sendServicesToPanel') servicios!: IServicio[];
   @Output() sendPagesToHome = new EventEmitter<number>();

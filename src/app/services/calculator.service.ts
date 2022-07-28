@@ -73,4 +73,16 @@ export class CalculatorService {
   public getBudgets(): Budget[] {
     return this.budgets;
   }
+
+  public sortBudgetListAlphabeticallyByName(): Budget[] {
+    return this.budgets = this.budgets
+      .sort((budget1, budget2) => {
+        return budget1.getBudgetName() === budget2.getBudgetName() ? 0 : budget1.getBudgetName() > budget2.getBudgetName() ? 1 : -1;
+      })
+  }
+
+  public sortBudgetListByDate(): Budget[] {
+    return this.budgets.sort((budget1, budget2) => Number(budget1.getDate()) - Number(budget2.getDate()))
+
+  }
 }

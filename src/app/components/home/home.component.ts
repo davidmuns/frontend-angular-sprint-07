@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     this.isBtnAddBudgetDisabled = this.getResultCondition();
   }
 
-  public getResultCondition(): boolean {
+  private getResultCondition(): boolean {
     return this.servicios[0].isChecked &&
       (
         this.pages < 1 ||
