@@ -10,7 +10,7 @@
         <img class="plus-img" src="../../../assets/plus.svg" alt="btn-plus" />
         <!-- <i class="fa-solid fa-square-plus fa-2x"></i> -->
       </button>
-      <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateExtras()" formControlName="pages" #pag />
+      <input class="my-1" type="text" [(ngModel)]="pages" (keyup)="updateExtras()" formControlName="pages" />
       <button class="delete btn" (click)="setExtra('page', 'delete')">
         <img class="minus-img" src="../../../assets/minus.svg" alt="btn-minus" />
       </button>

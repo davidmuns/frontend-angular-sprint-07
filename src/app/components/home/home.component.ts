@@ -25,10 +25,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   public updateTotal() {
-    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
-    console.log("pages | languages: ",this.pages, this.languages, this.isBtnAddBudgetDisabled);
-    console.log();
-
+    //this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 && this.languages < 1 ? true : false;
+    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    console.log("web is checked | pages | languages | is disabled: ", this.servicios[0].isChecked, this.pages, this.languages, this.isBtnAddBudgetDisabled);
     this.calculatorService.calculateTotal(this.servicios);
   }
 
@@ -42,11 +41,27 @@ export class HomeComponent implements OnInit {
 
   public getPagesFromPanel(page: number): void {
     this.pages = page;
-    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
+    //this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
+    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    console.log("web is checked | pages | languages | is disabled: ", this.servicios[0].isChecked, this.servicios[0].isChecked, this.pages, this.languages, this.isBtnAddBudgetDisabled);
   }
 
   public getLanguagesFromPanel(language: number): void {
     this.languages = language;
-    this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
+    //this.isBtnAddBudgetDisabled = this.servicios[0].isChecked && this.pages < 1 || this.languages < 1 ? true : false;
+    this.isBtnAddBudgetDisabled = this.getResultDisableBudgetButtonCondition();
+    console.log("web is checked | pages | languages | is disabled: ", this.servicios[0].isChecked, this.pages, this.languages, this.isBtnAddBudgetDisabled);
+  }
+
+  public getResultDisableBudgetButtonCondition(): boolean {
+    return this.servicios[0].isChecked &&
+      (
+        this.pages < 1 ||
+        Number.isNaN(this.pages) ||
+        !Number.isInteger ||
+        this.languages < 1 ||
+        Number.isNaN(this.languages) ||
+        !Number.isInteger(this.languages)
+      ) ? true : false;
   }
 }
