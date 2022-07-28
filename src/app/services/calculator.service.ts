@@ -13,7 +13,7 @@ export class CalculatorService {
   private pages: number = 0
   private languages: number = 0;
   private servicios: IServicio[] = []
-  budgets: Budget[] = [];
+  private budgets: Budget[] = [];
 
   constructor() {
 

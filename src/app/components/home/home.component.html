@@ -1,8 +1,5 @@
 <!-- Navigation bar -->
-<nav
-  class="navbar navbar-expand-sm bg-secondary m-2"
-  style="border-radius: 15px"
->
+<nav class="navbar navbar-expand-sm bg-secondary m-2" style="border-radius: 15px">
   <div class="container-fluid">
     <ul class="navbar-nav p-2">
       <li class="nav-item">
@@ -22,19 +19,11 @@
       <!-- Checkbox form -->
       <form *ngFor="let servicio of servicios; let i = index">
         <div class="form-check">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            name="any-name-is-valid"
-            [(ngModel)]="servicio.isChecked"
-            (change)="updateTotal()"
-          /><label class="form-check-label mx-1">{{ servicio.label }}</label>
+          <input type="checkbox" class="form-check-input" name="any-name-is-valid" [(ngModel)]="servicio.isChecked"
+            (change)="updateTotal()" /><label class="form-check-label mx-1">{{ servicio.label }}</label>
           <span *ngIf="i === 0">
-            <app-panel
-              [sendServicesToPanel]="servicios"
-              (sendPagesToHome)="getPagesFromPanel($event)"
-              (sendLanguagesToHome)="getLanguagesFromPanel($event)"
-            >
+            <app-panel [sendServicesToPanel]="servicios" (sendPagesToHome)="getPagesFromPanel($event)"
+              (sendLanguagesToHome)="getLanguagesFromPanel($event)">
             </app-panel>
           </span>
         </div>
@@ -48,34 +37,16 @@
         <!-- Budget form -->
         <form class="budget-form">
           <div class="mb-2">
-            <label for="budget-name" class="form-label"
-              >Nombre del presupuesto:</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="budget-name"
-              aria-describedby="budgetHelp"
-              #name
-            />
+            <label for="budget-name" class="form-label">Nombre del presupuesto:</label>
+            <input type="text" class="form-control" id="budget-name" aria-describedby="budgetHelp" #name />
             <!-- <div id="budgetHelp" class="form-text">We'll never share your name with anyone else.</div> -->
           </div>
           <div class="mb-3">
             <label for="budget-client" class="form-label">Cliente:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="budget-client"
-              #client
-            />
+            <input type="text" class="form-control" id="budget-client" #client />
           </div>
-          <button
-            type="submit"
-            class="btn btn-secondary"
-            style="width: 120px"
-            (click)="createBudget(name.value, client.value)"
-            [disabled]="isBtnAddBudgetDisabled"
-          >
+          <button type="submit" class="btn btn-secondary" style="width: 120px"
+            (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled">
             Add budget
           </button>
         </form>
