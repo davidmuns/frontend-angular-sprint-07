@@ -7,10 +7,10 @@ export class Budget {
     pages: 0,
     languages: 0
   }
-  private total: string;
+  private total: number;
   private date: Date = new Date();
 
-  constructor(budgetName: string, clientName: string, labels: string[], total: string) {
+  constructor(budgetName: string, clientName: string, labels: string[], total: number) {
     this.budgetName = budgetName;
     this.clientName = clientName;
     this.labels = labels;
@@ -36,7 +36,7 @@ export class Budget {
     return this.webExtras;
   }
 
-  public getTotal(): string {
+  public getTotal(): number {
     return this.total;
   }
 

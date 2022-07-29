@@ -4,7 +4,8 @@
   <button class="btn btn-secondary" style="width: 125px" (click)="sortBudgetListByDate()">Sort by
     date</button>
   <button class="btn btn-secondary" style="width: 125px">Reset</button>
-
+  <input type="text" style="border-radius: 10px;" name="filterByName" placeholder=" search by name..."
+    [(ngModel)]="filterByName">
 </div>
 
 <p class="fs-5">Budget list</p>
@@ -21,10 +22,11 @@
       <th>Date</th>
     </tr>
   </thead>
-  <tbody *ngFor="let budget of this.calculatorService.getBudgets(); let i = index">
-    <tr>
+  <tbody>
+    <!-- <tr *ngFor="let budget of this.calculatorService.getBudgets()"> -->
+    <tr *ngFor="let budget of (this.calculatorService.getBudgets() | budgetPipe:filterByName)">
       <td>{{ budget.getId() }}</td>
-      <td>{{ budget.getBudgetName() }}</td>
+      <td>{{ budget.getBudgetName() | titlecase }}</td>
       <td>{{ budget.getClientName() }}</td>
       <td>
         <ul *ngFor="let label of budget.getLabels()" style="list-style: none">
@@ -33,8 +35,9 @@
       </td>
       <td>{{ budget.getWebExtras().pages }}</td>
       <td>{{ budget.getWebExtras().languages }}</td>
-      <td>{{ budget.getTotal() }}</td>
-      <td>{{ budget.getDate().toLocaleDateString() }}</td>
+      <td>{{ budget.getTotal() | currency:'EUR' }}</td>
+      <!-- <td>{{ budget.getDate().toLocaleDateString() }}</td> -->
+      <td>{{ budget.getDate() | date:'medium' | lowercase }}</td>
     </tr>
   </tbody>
 </table>

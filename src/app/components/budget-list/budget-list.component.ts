@@ -8,7 +8,8 @@ import { CalculatorService } from './../../services/calculator.service';
   styleUrls: ['./budget-list.component.css']
 })
 export class BudgetListComponent implements OnInit {
-
+  filterByName: string = '';
+  // budget!: Budget;
   constructor(public readonly calculatorService: CalculatorService) { }
 
   ngOnInit(): void {

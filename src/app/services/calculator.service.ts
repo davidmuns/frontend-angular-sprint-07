@@ -51,18 +51,20 @@ export class CalculatorService {
     this.webExtras = (pages * languages) * 30;
   }
 
-  public getTotalWithExtras(): string {
+  // public getTotalWithExtras(): string {
+  public getTotalWithExtras(): number {
     this.totalWithExtras = this.isDataValid ? this.total + this.webExtras : 0;
-    return this.formatNumberToCurrency(this.totalWithExtras);
+    return this.totalWithExtras;
+    // return this.formatNumberToCurrency(this.totalWithExtras);
   }
 
-  public formatNumberToCurrency(number: number): string {
-    let formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'EUR',
-    });
-    return formatter.format(number);
-  }
+  // public formatNumberToCurrency(number: number): string {
+  //   let formatter = new Intl.NumberFormat('en-US', {
+  //     style: 'currency',
+  //     currency: 'EUR',
+  //   });
+  //   return formatter.format(number);
+  // }
 
   public createBudget(budgetName: string, clientName: string) {
     let labels: string[] = this.servicios

@@ -29,7 +29,7 @@
         </div>
       </form>
       <br />
-      <h5>Total: {{ getTotalWithExtras() }}</h5>
+      <h5>Total: {{ getTotalWithExtras() | currency:'EUR' }}</h5>
 
       <p class="fs-5">Generar presupuesto:</p>
 

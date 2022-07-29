@@ -10,6 +10,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { ModalWebComponent } from './components/modalweb/modalweb.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BudgetListComponent } from './components/budget-list/budget-list.component';
+import { BudgetFilterPipe } from './pipes/budget-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BudgetListComponent } from './components/budget-list/budget-list.compon
     PanelComponent,
     WelcomePageComponent,
     ModalWebComponent,
-    BudgetListComponent
+    BudgetListComponent,
+    BudgetFilterPipe
   ],
   imports: [
     BrowserModule,
