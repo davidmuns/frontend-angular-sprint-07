@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalWebComponent implements OnInit {
 
-  @Input('modalTextFromPanel') modalText: string = "";
+  @Input('modalTextFromPanel') modalText = "";
 
 
   constructor(private modal: NgbModal) {

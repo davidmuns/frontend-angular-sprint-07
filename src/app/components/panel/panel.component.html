@@ -1,7 +1,8 @@
 <div class="container d-flex align-items-center">
 
   <!-- Reactive form -->
-  <form [formGroup]="panelForm" class="form-container my-3 py-5" *ngIf="servicios[0].isChecked">
+  <form [formGroup]="panelForm" class="form-container my-3 py-5"
+    *ngIf="this.calculatorService.getServicios()[0].isChecked">
     <!-- Input and buttons for pages -->
     <div class="mx-3 d-flex align-items-baseline">
       <p>Número de páginas:</p>

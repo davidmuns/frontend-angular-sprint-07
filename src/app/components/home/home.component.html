@@ -12,6 +12,7 @@
 <!-- Title -->
 <h1 class="mt-3" style="text-align: center">Calculate your budget</h1>
 
+<!-- Main container -->
 <div class="container mt-5">
   <div class="row col-12">
     <div class="col-5">
@@ -22,8 +23,8 @@
           <input type="checkbox" class="form-check-input" name="any-name-is-valid" [(ngModel)]="servicio.isChecked"
             (change)="updateTotal()" /><label class="form-check-label mx-1">{{ servicio.label }}</label>
           <span *ngIf="i === 0">
-            <app-panel [sendServicesToPanel]="this.calculatorService.getServicios()"
-              (sendPagesToHome)="getPagesFromPanel($event)" (sendLanguagesToHome)="getLanguagesFromPanel($event)">
+            <app-panel (sendPagesToHome)="getPagesFromPanel($event)"
+              (sendLanguagesToHome)="getLanguagesFromPanel($event)">
             </app-panel>
           </span>
         </div>
@@ -33,6 +34,7 @@
 
       <p class="fs-5">Generar presupuesto:</p>
 
+      <!-- Budget container -->
       <div class="budget-container container mb-5 d-flex align-items-center">
         <!-- Budget form -->
         <form class="budget-form">
@@ -52,7 +54,7 @@
         </form>
       </div>
     </div>
-
+    <!-- Budget list table -->
     <div class="col-7">
       <app-budget-list></app-budget-list>
     </div>

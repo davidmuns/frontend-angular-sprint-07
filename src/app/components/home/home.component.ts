@@ -9,9 +9,9 @@ import { IServicio } from '../../models/iservicio';
 })
 export class HomeComponent implements OnInit {
 
-  isBtnAddBudgetDisabled: boolean = false;
-  private pages: number = 0;
-  private languages: number = 0;
+  isBtnAddBudgetDisabled = false;
+  private pages = 0;
+  private languages = 0;
 
   // constructor dependency injection
   constructor(public readonly calculatorService: CalculatorService) {

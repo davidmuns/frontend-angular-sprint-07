@@ -1,7 +1,6 @@
 import { CalculatorService } from './../../services/calculator.service';
-import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IServicio } from 'src/app/models/iservicio';
 
 @Component({
   selector: 'app-panel',
@@ -10,18 +9,17 @@ import { IServicio } from 'src/app/models/iservicio';
 })
 
 export class PanelComponent implements OnInit {
-  @Input('sendServicesToPanel') servicios!: IServicio[];
   @Output() sendPagesToHome = new EventEmitter<number>();
   @Output() sendLanguagesToHome = new EventEmitter<number>();
 
-  pages: number = 0;
-  languages: number = 0;
-  minRequired: number = 1;
-  panelForm: FormGroup;
+  pages = 0;
+  languages = 0;
+  minRequired = 1;
+  panelForm: FormGroup; // Reactive form variable
   modalTexts: string[] = ["Enter the number of pages you want your website to have.", "Enter the number of languages you want your website to have."];
 
   // constructor dependency injection
-  constructor(private calculatorService: CalculatorService) {
+  constructor(public readonly calculatorService: CalculatorService) {
     // Reactive form instances
     this.panelForm = new FormGroup({
       pages: new FormControl('',
