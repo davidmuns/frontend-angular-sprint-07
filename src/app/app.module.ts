@@ -11,6 +11,7 @@ import { ModalWebComponent } from './components/modalweb/modalweb.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BudgetListComponent } from './components/budget-list/budget-list.component';
 import { BudgetFilterPipe } from './pipes/budget-filter.pipe';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BudgetFilterPipe } from './pipes/budget-filter.pipe';
     WelcomePageComponent,
     ModalWebComponent,
     BudgetListComponent,
-    BudgetFilterPipe
+    BudgetFilterPipe,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
