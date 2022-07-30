@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <ul *ngIf="navBar == 'home-page'" class="navbar-nav p-2">
             <li class="nav-item">
-                <a class="nav-link text-white" routerLink="routerLink">Go back</a>
+                <a class="nav-link text-white" [routerLink]="link">Go back</a>
             </li>
         </ul>
         <ul *ngIf="navBar == 'welcome-page'" class="navbar-nav p-2">

@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 export class NavigationBarComponent implements OnInit {
 
   @Input() navBar: string = '';
-  @Input() routerLink: string = '';
+  @Input() link: string = '';
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   public goHome() {
-    this.router.navigate([this.routerLink]);
+    this.router.navigate([this.link]);
   }
 
 }
