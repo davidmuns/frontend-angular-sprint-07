@@ -2,12 +2,12 @@
 <app-navigation-bar [navBar]="'home-page'" [link]="'/'"></app-navigation-bar>
 
 <!-- Title -->
-<h1 style="text-align: center;margin-top: 100px;">Calculate your budget</h1>
+<h1 style="text-align: center; margin-top: 100px">Calculate your budget</h1>
 
-<!-- Main container -->
-<div class="container mt-5">
-  <div class="row col-12">
-    <div class="col-5">
+<!-- Services container -->
+<div class="container d-flex justify-content-center mt-4 mb-4">
+  <div class="row">
+    <div class="col-12">
       <p class="fs-5">¿Qué quieres hacer?</p>
       <!-- Checkbox form -->
       <form *ngFor="let servicio of this.calculatorService.getServicios(); let i = index">
@@ -22,32 +22,38 @@
         </div>
       </form>
       <br />
-      <h5>Total: {{ getTotalWithExtras() | currency:'EUR' }}</h5>
-
-      <p class="fs-5">Generar presupuesto:</p>
-
-      <!-- Budget container -->
-      <div class="budget-container container mb-5 d-flex align-items-center">
-        <!-- Budget form -->
-        <form class="budget-form">
-          <div class="mb-2">
-            <label for="budget-name" class="form-label">Nombre del presupuesto:</label>
-            <input type="text" class="form-control" id="budget-name" aria-describedby="budgetHelp" #name />
-            <!-- <div id="budgetHelp" class="form-text">We'll never share your name with anyone else.</div> -->
-          </div>
-          <div class="mb-3">
-            <label for="budget-client" class="form-label">Cliente:</label>
-            <input type="text" class="form-control" id="budget-client" #client />
-          </div>
-          <button type="submit" class="btn btn-secondary" style="width: 120px"
-            (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled">
-            Add budget
-          </button>
-        </form>
-      </div>
+      <h5>Total: {{ getTotalWithExtras() | currency: "EUR" }}</h5>
     </div>
-    <!-- Budget list table -->
-    <div class="col-7">
+  </div>
+</div>
+
+<!-- Budget container -->
+<div class="container d-flex justify-content-center mb-5">
+  <div class="row">
+    <div class="col-12">
+      <p class="fs-5" style="text-align: center;">Generar presupuesto</p>
+      <form class="budget-form">
+        <div class="mb-2">
+          <label for="budget-name" class="form-label">Nombre del presupuesto:</label>
+          <input type="text" class="form-control" id="budget-name" aria-describedby="budgetHelp" #name />
+        </div>
+        <div class="mb-3">
+          <label for="budget-client" class="form-label">Cliente:</label>
+          <input type="text" class="form-control" id="budget-client" #client />
+        </div>
+        <button type="submit" class="btn btn-secondary" style="width: 120px"
+          (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled">
+          Add budget
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Budget list table -->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
       <app-budget-list></app-budget-list>
     </div>
   </div>
