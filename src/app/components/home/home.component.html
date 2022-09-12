@@ -41,20 +41,12 @@
           <label for="budget-client" class="form-label">Cliente:</label>
           <input type="text" class="form-control" id="budget-client" #client />
         </div>
-        <button type="submit" class="btn btn-secondary" style="width: 120px"
+        <button type="submit" class="btn btn-secondary" 
           (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled" routerLink="/list">
-          Add budget
+          <i class="fas fa-plus-circle"></i> Add budget
         </button>
       </form>
     </div>
   </div>
 </div>
 
-<!-- Budget list table -->
-<!-- <div class="container mb-5">
-  <div class="row">
-    <div class="col-12">
-      <app-budget-list></app-budget-list>
-    </div>
-  </div>
-</div> -->

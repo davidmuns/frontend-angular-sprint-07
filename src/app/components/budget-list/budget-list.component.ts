@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Budget } from 'src/app/models/budget';
 import { CalculatorService } from './../../services/calculator.service';
 
 @Component({
@@ -9,7 +8,6 @@ import { CalculatorService } from './../../services/calculator.service';
 })
 export class BudgetListComponent implements OnInit {
   filterByName: string = '';
-  // budget!: Budget;
   constructor(public readonly calculatorService: CalculatorService) { }
 
   ngOnInit(): void {

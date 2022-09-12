@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BudgetFilterPipe implements PipeTransform {
 
   transform(budgets: Budget[], budgetName: string): Budget[] {
-    if (!budgetName || budgetName.length < 3) return budgets;
+    if (!budgetName || budgetName.length < 1) return budgets;
     let filteredBudgetsByName: Budget[] = [];
     for (const budget of budgets) {
       if (budget.getBudgetName().toLowerCase().indexOf(budgetName.toLowerCase()) > -1) {
