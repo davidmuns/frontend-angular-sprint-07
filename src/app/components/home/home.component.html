@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<app-navigation-bar [navBar]="'home-page'" [link]="'/'"></app-navigation-bar>
+<app-navigation-bar [navBar]="'home-page'"></app-navigation-bar>
 
 <!-- Title -->
 <h1 style="text-align: center; margin-top: 100px">Calculate your budget</h1>
@@ -42,7 +42,7 @@
           <input type="text" class="form-control" id="budget-client" #client />
         </div>
         <button type="submit" class="btn btn-secondary" style="width: 120px"
-          (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled">
+          (click)="createBudget(name.value, client.value)" [disabled]="isBtnAddBudgetDisabled" routerLink="/list">
           Add budget
         </button>
       </form>
@@ -51,10 +51,10 @@
 </div>
 
 <!-- Budget list table -->
-<div class="container mb-5">
+<!-- <div class="container mb-5">
   <div class="row">
     <div class="col-12">
       <app-budget-list></app-budget-list>
     </div>
   </div>
-</div>
+</div> -->
