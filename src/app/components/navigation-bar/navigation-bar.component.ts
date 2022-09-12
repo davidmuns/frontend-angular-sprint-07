@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,12 +10,8 @@ export class NavigationBarComponent implements OnInit {
   @Input() navBar: string = '';
   @Input() link: string = '';
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  public goHome() {
-    this.router.navigate([this.link]);
-  }
-
 }
