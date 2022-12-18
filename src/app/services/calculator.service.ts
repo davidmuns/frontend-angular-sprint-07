@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Budget } from '../models/budget';
 import { IServicio } from '../models/iservicio';
 import serviciosJson from 'src/assets/servicios.json'
+import { ThisReceiver } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -84,8 +85,15 @@ export class CalculatorService {
   public sortBudgetListAlphabeticallyByName(): Budget[] {
     return this.budgets = this.budgets
       .sort((budget1, budget2) => {
-        return budget1.getBudgetName() === budget2.getBudgetName() ? 0 : budget1.getBudgetName() > budget2.getBudgetName() ? 1 : -1;
-      })
+        if (budget1.getBudgetName().toLowerCase() === budget2.getBudgetName().toLowerCase()) {
+          return 0;
+        } else if (budget1.getBudgetName().toLowerCase() > budget2.getBudgetName().toLowerCase()) {
+          return 1;
+        } else {
+          return -1;
+        }
+        // return budget1.getBudgetName().toLowerCase() === budget2.getBudgetName().toLowerCase() ? 0 : budget1.getBudgetName().toLowerCase() > budget2.getBudgetName().toLowerCase() ? 1 : -1;
+      });
   }
 
   public sortBudgetListByDate(): Budget[] {
